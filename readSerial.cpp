@@ -36,9 +36,9 @@ int main()
    
 /* Open File Descriptor */
 /* Open File Descriptor */
-    int USB = open( "/dev/ttyUSB0", O_RDWR| O_NOCTTY );
+    int serialCom = open( "/dev/ttyUSB0", O_RDWR| O_NOCTTY );
 /* Error Handling */
-    if ( USB < 0 )
+    if ( serialCom < 0 )
     {
         cout << "Error " << errno << " opening " << "/dev/ttyUSB0" << ": " << strerror (errno) << endl;
     }
@@ -48,7 +48,7 @@ int main()
     //memset (&tty, 0, sizeof tty);
 
 /* Error Handling */
-    if ( tcgetattr ( USB, &tty ) != 0 )
+    if ( tcgetattr ( serialCom, &tty ) != 0 )
     {
         cout << "Error " << errno << " from tcgetattr: " << strerror(errno) << endl;
     }
@@ -72,8 +72,8 @@ tty.c_cflag     |=  CREAD | CLOCAL;     // turn on READ & ignore ctrl lines
 cfmakeraw(&tty);
 
 /* Flush Port, then applies attributes */
-tcflush( USB, TCIFLUSH );
-if ( tcsetattr ( USB, TCSANOW, &tty ) != 0)
+tcflush( serialCom, TCIFLUSH );
+if ( tcsetattr ( serialCom, TCSANOW, &tty ) != 0)
 {
     cout << "Error " << errno << " from tcsetattr" << endl;
 }
@@ -83,7 +83,7 @@ if ( tcsetattr ( USB, TCSANOW, &tty ) != 0)
 // int n_written = 0;
 
 // do {
-//     n_written += write( USB, &cmd[n_written], 1 );
+//     n_written += write( serialCom, &cmd[n_written], 1 );
 // }
 // while (cmd[n_written-1] != '\r' && n_written > 0);
 
@@ -96,7 +96,7 @@ char * buff = new char [256];
 
 for (int i = 0; i<1000; i++){
 
-    n = read( USB, buff, sizeof(buff) );
+    n = read( serialCom, buff, sizeof(buff) );
     cout<<buff<<endl;
     if(n<0){
         cout<<"Reading Error"<<strerror(errno)<<endl;
@@ -112,7 +112,7 @@ for (int i = 0; i<1000; i++){
     }
 }
 
-close(USB);
+close(serialCom);
 
 //     //int serial;
 //     char * buff = new char [1];
