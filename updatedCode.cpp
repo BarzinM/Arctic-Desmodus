@@ -78,9 +78,9 @@ int serialSetup()
 //     }
 //     return bytes_in_binary;
 // }
-int readRegister(int serialCommunicationHandler, int requested_address,vector<string> * bytes_in_binary)
+int readRegister(int serialCommunicationHandler, int requested_address, vector<string> *bytes_in_binary)
 {
-    
+
     string single_byte;
     int address;
     int packet_type;
@@ -96,7 +96,7 @@ int readRegister(int serialCommunicationHandler, int requested_address,vector<st
     /* Whole response*/
     char *buffer = new char [100];
     iter = 10;
-    
+
     for (int i = 0; i < iter; i++)
     {
         length = 0;
@@ -121,7 +121,7 @@ int readRegister(int serialCommunicationHandler, int requested_address,vector<st
                     computer_checksum += uint8_t(buffer[0]);
                     binary = bitset<8>(packet_type).to_string(); //to binary
                     //char *binary_char = &binary[0];
-if (binary[0] == '1')
+                    if (binary[0] == '1')
                     {
                         length = 1;
                     }
@@ -150,14 +150,15 @@ if (binary[0] == '1')
                     address = int(uint8_t(buffer[0]));
                     cout << address << ", ";
                     computer_checksum += uint8_t(buffer[0]);
-                    length=length*4;
+                    length = length * 4;
                     // else{cout<<endl<<"Skipped";}
-                    if (requested_address != address){
-                    	read( serialCommunicationHandler, buffer, length+2);
-                    	continue;
+                    if (requested_address != address)
+                    {
+                        read( serialCommunicationHandler, buffer, length + 2);
+                        continue;
                     }
                     // if(address==86||address==112||address==97||address==85){continue;}//else{i=iter;}
-                    
+
                     binary = bitset<8>(address).to_string(); //to binary
                     printf("\nReg %3i:  | ", address );
                     for (int i = 0; i < length; i++)
@@ -167,7 +168,7 @@ if (binary[0] == '1')
                         computer_checksum += uint8_t(buffer[0]);
                         single_byte = bitset<8>(int(decimal)).to_string(); //to binary
                         printf("%3i: ", int(decimal));
-                        
+
                         (*bytes_in_binary).push_back(single_byte);
                         cout << (*bytes_in_binary).at(i) << " | ";
                     }
@@ -406,18 +407,18 @@ int packetRequest(int serialCommunicationHandler, int requested_address)
     computer_checksum += uint8_t(cmd[4]);
     cmd[5] = uint8_t(computer_checksum >> 8);
     cmd[6] = uint8_t(computer_checksum);
-    while(true)
+    while (true)
     {
-    	tcflush( serialCommunicationHandler, TCIOFLUSH );
+        tcflush( serialCommunicationHandler, TCIOFLUSH );
         write( serialCommunicationHandler, cmd, 7 );
 
         error = readRegister(serialCommunicationHandler, requested_address, &bytes_in_binary);
-        if(error==0)break;
+        if (error == 0)break;
     }
-    cout<<endl<<bytes_in_binary.at(0);
-    cout<<endl<<bytes_in_binary.at(1);
-    cout<<endl<<bytes_in_binary.at(2);
-    cout<<endl<<bytes_in_binary.at(3)<<endl;
+    cout << endl << bytes_in_binary.at(0);
+    cout << endl << bytes_in_binary.at(1);
+    cout << endl << bytes_in_binary.at(2);
+    cout << endl << bytes_in_binary.at(3) << endl;
     return 0;
 }
 
