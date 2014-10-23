@@ -78,7 +78,7 @@ int serialSetup()
 //     }
 //     return bytes_in_binary;
 // }
-int readRegister(int serialCommunicationHandler, int requested_address, vector<string> *bytes_in_binary)
+int getRegister(int serialCommunicationHandler, int requested_address, vector<string> *bytes_in_binary)
 {
 
     string single_byte;
@@ -168,15 +168,14 @@ int readRegister(int serialCommunicationHandler, int requested_address, vector<s
                         computer_checksum += uint8_t(buffer[0]);
                         single_byte = bitset<8>(int(decimal)).to_string(); //to binary
                         printf("%3i: ", int(decimal));
-
-                        (*bytes_in_binary).push_back(single_byte);
+                        (*bytes_in_binary).at(i) = single_byte;
                         cout << (*bytes_in_binary).at(i) << " | ";
                     }
                     n = read( serialCommunicationHandler, buffer, 2);
                     received_checksum = uint16_t(buffer[0]) << 8 | uint8_t(buffer[1]);
                     if (computer_checksum == received_checksum)
                     {
-                        printf("\n" ANSI_COLOR_GREEN "Healthy" ANSI_COLOR_RESET);
+                        printf("\n" ANSI_COLOR_GREEN "Healthy\n" ANSI_COLOR_RESET);
                         if (requested_address == address)
                         {
                             found = 1;
@@ -210,7 +209,7 @@ int readRegister(int serialCommunicationHandler, int requested_address, vector<s
     return -3;
 }
 
-int readPacketsInDeveloperMode(int serialCommunicationHandler)
+int echoPacketsInDeveloperMode(int serialCommunicationHandler)
 {
     int address;
     int packet_type;
@@ -320,7 +319,7 @@ int readPacketsInDeveloperMode(int serialCommunicationHandler)
                     if (computer_checksum == received_checksum)
                     {
                         cout << endl << computer_checksum << "   " << received_checksum << endl;
-                        printf("\n" ANSI_COLOR_GREEN "Healthy" ANSI_COLOR_RESET);
+                        printf("\n" ANSI_COLOR_GREEN "Healthy\n" ANSI_COLOR_RESET);
                     }
                     else
                     {
@@ -346,7 +345,124 @@ int readPacketsInDeveloperMode(int serialCommunicationHandler)
     return 0;
 }
 
-int registerWrite(int serialCommunicationHandler)
+
+int confirmWrite(int serialCommunicationHandler, int requested_address)
+{
+    int address;
+    int packet_type;
+    bool found = 0;
+    unsigned char decimal;
+    int length;
+    uint16_t computer_checksum;
+    string binary;
+    uint16_t received_checksum;
+    /* *** READ *** */
+    int n = 0;
+    int iter;
+    /* Whole response*/
+    char *buffer = new char [100];
+    iter = 10;
+
+    for (int i = 0; i < iter; i++)
+    {
+        length = 0;
+        computer_checksum = 's' + 'n' + 'p';
+
+        // Find 's' character
+        n = read( serialCommunicationHandler, buffer, 1);
+        if (*buffer == 's')
+        {
+
+            // Check to see if it is followed by 'n' and 'p'
+            n = read( serialCommunicationHandler, buffer, 1);
+            if (*buffer == 'n')
+            {
+                n = read( serialCommunicationHandler, buffer, 1);
+                if (*buffer == 'p')
+                {
+                    n = read( serialCommunicationHandler, buffer, 1);
+                    packet_type = int(uint8_t(buffer[0]));
+                    decimal = buffer[0];
+                    // packet_type
+                    computer_checksum += uint8_t(buffer[0]);
+                    binary = bitset<8>(packet_type).to_string(); //to binary
+                    //char *binary_char = &binary[0];
+                    if (binary[0] == '1')
+                    {
+                        length = 1;
+                    }
+                    if (binary[1] == '1')
+                    {
+                        length = 0;
+                    }
+                    if (binary[2] == '1')
+                    {
+                        length += 8;
+                    }
+                    if (binary[3] == '1')
+                    {
+                        length += 4;
+                    }
+                    if (binary[4] == '1')
+                    {
+                        length += 2;
+                    }
+                    if (binary[5] == '1')
+                    {
+                        length += 1;
+                    }
+
+                    n = read( serialCommunicationHandler, buffer, 1);
+                    address = int(uint8_t(buffer[0]));
+                    cout << address << ", ";
+                    computer_checksum += uint8_t(buffer[0]);
+                    length = length * 4;
+                    // else{cout<<endl<<"Skipped";}
+                    if (requested_address != address)
+                    {
+                        read( serialCommunicationHandler, buffer, length + 2);
+                        continue;
+                    }
+
+                    n = read( serialCommunicationHandler, buffer, 2);
+                    received_checksum = uint16_t(buffer[0]) << 8 | uint8_t(buffer[1]);
+                    if (computer_checksum == received_checksum)
+                    {
+                        // printf("\n" ANSI_COLOR_GREEN "Healthy" ANSI_COLOR_RESET);
+                        if (requested_address == address && length == 0)
+                        {
+                            found = 1;
+                            return 0;
+                        }
+
+                    }
+                    else
+                    {
+                        cout << endl << computer_checksum << "   " << received_checksum << endl;
+                        printf("\n" ANSI_COLOR_RED "Corrupted" ANSI_COLOR_RESET);
+                    }
+                }
+            }
+        }
+        if (n < 0)
+        {
+            cout << "Reading Error" << strerror(errno) << endl;
+            return -1;
+        }
+        if (n == 0)
+        {
+            cout << "Nothing to read";
+            return -2;
+        }
+    }
+    if (!found)printf( ANSI_COLOR_RED "Did NOT get the requested register information" ANSI_COLOR_RESET);
+    cout << endl;
+    delete[](buffer);
+
+    return -3;
+}
+
+int registerWrite(int serialCommunicationHandler, int address, vector<string> *bytes_in_binary)
 {
     /* *** WRITE *** */
     // Start of packet
@@ -355,7 +471,7 @@ int registerWrite(int serialCommunicationHandler)
 
     // Set packet type
     char packet_type = (bitset<8>("10000000").to_ulong());
-    unsigned int address = 2;
+    //unsigned int address = 2;
     // Construct the command
     cmd[0] = 's';
     cmd[1] = 'n';
@@ -365,13 +481,13 @@ int registerWrite(int serialCommunicationHandler)
     computer_checksum += uint8_t(cmd[3]);
     cmd[4] = char(address);
     computer_checksum += uint8_t(cmd[4]);
-    cmd[5] = (bitset<8>("01100000").to_ulong());
+    cmd[5] = (bitset<8>((*bytes_in_binary).at(0)).to_ulong());
     computer_checksum += uint8_t(cmd[5]);
-    cmd[6] = (bitset<8>("00000000").to_ulong());
+    cmd[6] = (bitset<8>((*bytes_in_binary).at(1)).to_ulong());
     computer_checksum += uint8_t(cmd[6]);
-    cmd[7] = (bitset<8>("00000000").to_ulong());
+    cmd[7] = (bitset<8>((*bytes_in_binary).at(2)).to_ulong());
     computer_checksum += uint8_t(cmd[7]);
-    cmd[8] = (bitset<8>("00000000").to_ulong());
+    cmd[8] = (bitset<8>((*bytes_in_binary).at(3)).to_ulong());
     computer_checksum += uint8_t(cmd[8]);
     cmd[9] = uint8_t(computer_checksum >> 8);
     cmd[10] = uint8_t(computer_checksum);
@@ -381,17 +497,26 @@ int registerWrite(int serialCommunicationHandler)
     // n_written += write( serialCommunicationHandler, cmd+n_written, 11 );
     // }
 
-    write( serialCommunicationHandler, cmd, 30 );
+    write( serialCommunicationHandler, cmd, 11 );
+    int error = confirmWrite(serialCommunicationHandler, address);
+    cout << endl << "error is " << error ;
+    // packetRequest(serialCommunicationHandler, address);
 
     return 0;
 }
 
-int packetRequest(int serialCommunicationHandler, int requested_address)
+
+int echoSinglePacket(int serialCommunicationHandler, int requested_address)
+{
+
+}
+
+int packetRequest(int serialCommunicationHandler, int requested_address, vector<string> *bytes_in_binary)
 {
     // Start of packet
     char cmd[11];
     uint16_t computer_checksum;
-    vector<string> bytes_in_binary;
+    // vector<string> bytes_in_binary;
     bool error;
 
     // Set packet type
@@ -412,13 +537,13 @@ int packetRequest(int serialCommunicationHandler, int requested_address)
         tcflush( serialCommunicationHandler, TCIOFLUSH );
         write( serialCommunicationHandler, cmd, 7 );
 
-        error = readRegister(serialCommunicationHandler, requested_address, &bytes_in_binary);
+        error = getRegister(serialCommunicationHandler, requested_address, bytes_in_binary);
         if (error == 0)break;
     }
-    cout << endl << bytes_in_binary.at(0);
-    cout << endl << bytes_in_binary.at(1);
-    cout << endl << bytes_in_binary.at(2);
-    cout << endl << bytes_in_binary.at(3) << endl;
+    // cout << endl << (*bytes_in_binary).at(0);
+    // cout << endl << (*bytes_in_binary).at(1);
+    // cout << endl << (*bytes_in_binary).at(2);
+    // cout << endl << (*bytes_in_binary).at(3) << endl;
     return 0;
 }
 
@@ -462,10 +587,11 @@ vector<string> showRegister(string &path)
 int developerMode(int serialCommunicationHandler)
 {
     bool exitMode = 0;
-    string temp;
+    string binary;
     int input = -1;
     unsigned int address;
     int raw_rate = 0;
+    vector<string> bytes_in_binary {"00000000", "00000000", "00000000", "00000000"};
     while (exitMode == 0)
     {
         cout << "\nYou are in developer mode. Choose an option" << endl;
@@ -502,9 +628,18 @@ int developerMode(int serialCommunicationHandler)
                 }
             }
             address = 2;
-            cout << endl << "Transmition rate will be set to " << raw_rate << " Hz" << endl;
-            packetRequest(serialCommunicationHandler, address);
-            // serialWrite(serialCommunicationHandler,address,raw_rate)
+            binary = bitset<8>(raw_rate).to_string();
+            cout << endl << "Transmition rate will be set to " << raw_rate << " Hz: " << binary << endl;
+            cout << "\nOld data in register:" << endl;
+            packetRequest(serialCommunicationHandler, address, &bytes_in_binary);
+            bytes_in_binary.at(3) = binary;
+            registerWrite(serialCommunicationHandler, address, &bytes_in_binary);
+            cout << "\nNew data in register:" << endl;
+            packetRequest(serialCommunicationHandler, address, &bytes_in_binary);
+            // cout << endl << (bytes_in_binary).at(0);
+            // cout << endl << (bytes_in_binary).at(1);
+            // cout << endl << (bytes_in_binary).at(2);
+            // cout << endl << (bytes_in_binary).at(3) << endl;
 
             // case 2:
 
@@ -531,9 +666,9 @@ int main()
     developerMode(serialCommunicationHandler);
     // packetRequest(serialCommunicationHandler, 4);
 
-    registerWrite(serialCommunicationHandler);
+    // registerWrite(serialCommunicationHandler);
 
-    readPacketsInDeveloperMode(serialCommunicationHandler);
+    echoPacketsInDeveloperMode(serialCommunicationHandler);
 
     serialClose(serialCommunicationHandler);
 
