@@ -24,24 +24,41 @@
 
 using namespace std;
 
+//cout << "Got to line: " << __LINE__ << ", File: " << __FILE__ << endl;
+
+
+class Packet
+{
+private:
+public:
+    int packet_type;
+    int address;
+    int length = 0;
+    char *data;
+    uint16_t checksum;
+    void calculateLength ( Packet *received_packet );
+    void getLength();
+    Packet();
+    ~Packet();
+    void checkHealth();
+    uint16_t generateChecksum();
+};
+
 class UM7
 {
 private:
-    char *buffer;
+
     vector<string> register_name;
-    vector<int> packet;
-    int length;
-    int packet_type;
-    int address;
+
+
     int serial_handler;
     int error;
 public:
     void findBeginning();
-    void calculateLength ( string binary );
     void setError ( int err );
     int getFrequency();
-    int getIntegerInput ( int *input );
-    int getLength();
+    // int getIntegerInput ( int *input );
+
     int getPacketType();
     int getAddress();
     void echoPacket ( int iterations );
@@ -63,7 +80,7 @@ public:
 ///////////////////////////// //
 ////////////////////////////////
 
-int UM7::getIntegerInput ( int *input )
+int getIntegerInput ( int *input )
 {
     string line;
     cin >> line;
@@ -97,8 +114,46 @@ void UM7::setError ( int err )
     }
 }
 
-void UM7::calculateLength ( string binary )
+Packet::Packet() {};
+
+Packet::~Packet()
 {
+    delete[] ( data );
+}
+
+uint16_t Packet::generateChecksum()
+{
+    uint16_t computed_checksum;
+    computed_checksum = 's' + 'n' + 'p';
+    computed_checksum += packet_type + address;
+
+    for ( int i = 0; i < length * 4; i++ )
+    {
+        computed_checksum += int ( uint8_t ( data[i] ) );
+    }
+
+    return computed_checksum;
+}
+
+void Packet::checkHealth()
+{
+    uint16_t computed_checksum = generateChecksum();
+
+    if ( computed_checksum == checksum )
+    {
+        printf ( "\n" ANSI_COLOR_GREEN "Healthy\n" ANSI_COLOR_RESET );
+    }
+    else
+    {
+        printf ( "\n" ANSI_COLOR_RED "Corrupted" ANSI_COLOR_RESET );
+    }
+}
+
+void Packet::getLength ()
+{
+    length = 0;
+    string binary = bitset<8> ( packet_type ).to_string();
+
     if ( binary[0] == '1' )
     {
         length = 1;
@@ -128,13 +183,34 @@ void UM7::calculateLength ( string binary )
     {
         length += 1;
     }
+
+    data = new char [length * 4];
+    cout << endl <<
+         "===========================================================================" <<
+         endl;
+
+    if ( binary[7] == '1' )
+    {
+        cout << "******COMMUNICATION FAILED******";
+    }
+
+    cout << packet_type << ": " << binary << ": ";
+
+    if ( binary[0] == '1' )
+    {
+        cout << "has data.";
+    }
+
+    if ( binary[1] == '1' )
+    {
+        cout << "\b and is batch";
+    }
 }
 UM7::UM7()
 {
     printf ( ANSI_COLOR_CYAN
              "######################## UM7 Communication, BarzinM #######################\n"
              ANSI_COLOR_RESET );
-    buffer = new char [30];
     /* Open File Descriptor */
     serial_handler = open ( "/dev/ttyUSB0", O_RDWR | O_NOCTTY );
 
@@ -185,7 +261,6 @@ UM7::UM7()
 UM7::~UM7()
 {
     close ( serial_handler );
-    delete[] buffer;
     printf ( ANSI_COLOR_CYAN
              "++++++++++++++++++++++++ Exiting IMU Communication Program ++++++++++++++++\n"
              ANSI_COLOR_RESET );
@@ -194,6 +269,7 @@ UM7::~UM7()
 void UM7::findBeginning()
 {
     int n = 0;
+    char buffer[10];
 
     while ( true )
     {
@@ -220,98 +296,64 @@ void UM7::findBeginning()
 
 void UM7::echoPacket ( int iter )
 {
-    unsigned char decimal;
-    uint16_t computer_checksum;
-    string binary;
+    Packet received_pkt;
     uint16_t received_checksum;
+    unsigned char decimal;
+    string binary;
+    char buffer[100];
     /* *** READ *** */
-    int n = 0;
+    int n;
+    int buffer_value;
     /* Whole response*/
     tcflush ( serial_handler, TCIOFLUSH );
 
     for ( int i = 0; i < iter; i++ )
     {
-        length = 0;
-        computer_checksum = 's' + 'n' + 'p';
+        // computer_checksum = 's' + 'n' + 'p';
         findBeginning();
         n = read ( serial_handler, buffer, 1 );
-        packet_type = int ( uint8_t ( buffer[0] ) );
+        int temp = int ( uint8_t ( buffer[0] ) );
+        received_pkt.packet_type = temp;
         // packet_type
-        computer_checksum += uint8_t ( buffer[0] );
-        binary = bitset<8> ( packet_type ).to_string(); //to binary
-        calculateLength ( binary );
+        // computer_checksum += uint8_t ( buffer[0] );
+        received_pkt.getLength ( );
         //char *binary_char = &binary[0];
         n = read ( serial_handler, buffer, 1 );
-        address = int ( uint8_t ( buffer[0] ) );
-        computer_checksum += uint8_t ( buffer[0] );
-        cout << endl <<
-             "===========================================================================" <<
-             endl;
-
-        if ( binary[7] == '1' )
-        {
-            cout << "******COMMUNICATION FAILED******";
-        }
-
-        cout << packet_type << ": " << binary << ": ";
-
-        if ( binary[0] == '1' )
-        {
-            cout << "has data";
-        }
-
-        if ( binary[1] == '1' )
-        {
-            cout << ", is batch";
-        }
-
-        printf ( "\nAddress is %i = %#x", address, address );
-        cout << " = " << bitset<8> ( address ).to_string();
-        cout << "\nData length = " << length << " registers";
+        received_pkt.address =  int ( uint8_t ( buffer[0] ) );
+        printf ( "\nAddress is %i = %#x", received_pkt.address, received_pkt.address );
+        cout << " = " << bitset<8> ( received_pkt.address ).to_string();
+        cout << "\nData length = " << received_pkt.length << " registers";
         // else{cout<<endl<<"Skipped";}
         // if( address==86||address==112||address==97||address==85 ){continue;}//else{i=iter;}
-        binary = bitset<8> ( address ).to_string(); //to binary
-        length = length * 4;
+        binary = bitset<8> ( received_pkt.address ).to_string(); //to binary
 
-        for ( int i = 0; i < length; i++ )
+        for ( int i = 0; i < received_pkt.length * 4; i++ )
         {
             if ( i % 4 == 0 )
             {
-                printf ( "\nReg %3i:  | ", address + i / 4 );
+                printf ( "\nReg %3i:  | ", received_pkt.address + i / 4 );
             }
 
             n = read ( serial_handler, buffer, 1 );
-            decimal = buffer[0];
-            computer_checksum += uint8_t ( buffer[0] );
-            binary = bitset<8> ( int ( decimal ) ).to_string(); //to binary
-            printf ( "%3i: ", int ( decimal ) );
+            received_pkt.data[i] =  int ( uint8_t ( buffer[0] ) );
+            binary = bitset<8> ( buffer[0] ).to_string(); //to binary
+            printf ( "%3u: ", ( uint8_t ( received_pkt.data[i] ) ) );
             cout << binary << " | ";
         }
 
         n = read ( serial_handler, buffer, 2 );
-        received_checksum = uint16_t ( buffer[0] ) << 8 | uint8_t ( buffer[1] );
-
-        if ( computer_checksum == received_checksum )
-        {
-            cout << endl << computer_checksum << "   " << received_checksum << endl;
-            printf ( "\n" ANSI_COLOR_GREEN "Healthy\n" ANSI_COLOR_RESET );
-        }
-        else
-        {
-            printf ( "\n" ANSI_COLOR_RED "Corrupted" ANSI_COLOR_RESET );
-        }
-
-        if ( n < 0 )
-        {
-            cout << "Reading Error" << strerror ( errno ) << endl;
-            break;
-        }
-
-        if ( n == 0 )
-        {
-            cout << "Nothing to read";
-            break;
-        }
+        received_pkt.checksum = uint16_t ( buffer[0] ) << 8 | uint8_t ( buffer[1] );
+        received_pkt.checkHealth();
+        // if ( n < 0 )
+        // {
+        //     cout << "Reading Error" << strerror ( errno ) << endl;
+        //     break;
+        // }
+        // if ( n == 0 )
+        // {
+        //     cout << "Nothing to read";
+        //     break;
+        // }
     }
 
     cout << endl;
@@ -463,7 +505,7 @@ void UM7::config()
 
         if ( input != 0 )
         {
-            insertByte ( serialCommunicationHandler, address, byte_index );
+            // insertByte ( serialCommunicationHandler, address, byte_index );
         }
     }
 
@@ -475,3 +517,181 @@ void UM7::config()
     sleep ( 1 );
     return;
 }
+
+int packetRequest ( int address ) // TODO fix this function
+{
+	Packet request_packet;
+	request_packet.address=address;
+	request_packet.length=0;
+    // Start of packet
+    char cmd[11];
+    uint16_t computer_checksum;
+    // vector<string> bytes_in_binary;
+    int error;
+    // Set packet type
+    char packet_type = ( bitset<8> ( "00000000" ).to_ulong() );
+    // Construct the command
+    cmd[0] = 's';
+    cmd[1] = 'n';
+    cmd[2] = 'p';
+    computer_checksum = 's' + 'n' + 'p';
+    cmd[3] = packet_type;
+    computer_checksum += uint8_t ( cmd[3] );
+    cmd[4] = char ( requested_address );
+    computer_checksum += uint8_t ( cmd[4] );
+    cmd[5] = uint8_t ( computer_checksum >> 8 );
+    cmd[6] = uint8_t ( computer_checksum );
+
+    while ( true )
+    {
+        tcflush ( serialCommunicationHandler, TCIOFLUSH );
+        write ( serialCommunicationHandler, cmd, 7 );
+        error = getRegister ( serialCommunicationHandler, requested_address,
+                              bytes_in_binary );
+
+        if ( error == 0 )
+        {
+            break;
+        }
+    }
+
+    // cout << endl << ( *bytes_in_binary ).at( 0 );
+    // cout << endl << ( *bytes_in_binary ).at( 1 );
+    // cout << endl << ( *bytes_in_binary ).at( 2 );
+    // cout << endl << ( *bytes_in_binary ).at( 3 ) << endl;
+    return 0;
+}
+
+// int getRegister ( int serialCommunicationHandler, int requested_address,
+//                   vector<string> *bytes_in_binary )
+// {
+//     string single_byte;
+//     int address;
+//     int packet_type;
+//     bool found = 0;
+//     unsigned char decimal;
+//     int length;
+//     uint16_t computer_checksum;
+//     string binary;
+//     uint16_t received_checksum;
+//     /* *** READ *** */
+//     int n = 0;
+//     int iter;
+//     /* Whole response*/
+//     char *buffer = new char [100];
+//     iter = 10;
+
+//     for ( int i = 0; i < iter; i++ )
+//     {
+//         length = 0;
+//         computer_checksum = 's' + 'n' + 'p';
+//         // Find 's' character
+//         findBeginning()
+//         n = read ( serialCommunicationHandler, buffer, 1 );
+//         packet_type = int ( uint8_t ( buffer[0] ) );
+//         decimal = buffer[0];
+//         // packet_type
+//         computer_checksum += uint8_t ( buffer[0] );
+//         binary = bitset<8> ( packet_type ).to_string(); //to binary
+
+//         //char *binary_char = &binary[0];
+//         if ( binary[0] == '1' )
+//         {
+//             length = 1;
+//         }
+
+//         if ( binary[1] == '1' )
+//         {
+//             length = 0;
+//         }
+
+//         if ( binary[2] == '1' )
+//         {
+//             length += 8;
+//         }
+
+//         if ( binary[3] == '1' )
+//         {
+//             length += 4;
+//         }
+
+//         if ( binary[4] == '1' )
+//         {
+//             length += 2;
+//         }
+
+//         if ( binary[5] == '1' )
+//         {
+//             length += 1;
+//         }
+
+//         n = read ( serialCommunicationHandler, buffer, 1 );
+//         address = int ( uint8_t ( buffer[0] ) );
+//         cout << address << ", ";
+//         computer_checksum += uint8_t ( buffer[0] );
+//         length = length * 4;
+
+//         // else{cout<<endl<<"Skipped";}
+//         if ( requested_address != address )
+//         {
+//             read ( serialCommunicationHandler, buffer, length + 2 );
+//             continue;
+//         }
+
+//         // if( address==86||address==112||address==97||address==85 ){continue;}//else{i=iter;}
+//         binary = bitset<8> ( address ).to_string(); //to binary
+//         printf ( "\nReg %3i:  | ", address );
+
+//         for ( int i = 0; i < length; i++ )
+//         {
+//             n = read ( serialCommunicationHandler, buffer, 1 );
+//             decimal = buffer[0];
+//             computer_checksum += uint8_t ( buffer[0] );
+//             single_byte = bitset<8> ( int ( decimal ) ).to_string(); //to binary
+//             printf ( "%3i: ", int ( decimal ) );
+//             ( *bytes_in_binary ).at ( i ) = single_byte;
+//             cout << ( *bytes_in_binary ).at ( i ) << " | ";
+//         }
+
+//         n = read ( serialCommunicationHandler, buffer, 2 );
+//         received_checksum = uint16_t ( buffer[0] ) << 8 | uint8_t ( buffer[1] );
+
+//         if ( computer_checksum == received_checksum )
+//         {
+//             printf ( "\n" ANSI_COLOR_GREEN "Healthy\n" ANSI_COLOR_RESET );
+
+//             if ( requested_address == address )
+//             {
+//                 found = 1;
+//                 return 0;
+//             }
+//         }
+//         else
+//         {
+//             cout << endl << computer_checksum << "   " << received_checksum << endl;
+//             printf ( "\n" ANSI_COLOR_RED "Corrupted" ANSI_COLOR_RESET );
+//         }
+
+//         if ( n < 0 )
+//         {
+//             cout << "Reading Error" << strerror ( errno ) << endl;
+//             return -1;
+//         }
+
+//         if ( n == 0 )
+//         {
+//             cout << "Nothing to read";
+//             return -2;
+//         }
+//     }
+
+//     if ( !found )
+//     {
+//         printf ( ANSI_COLOR_RED "Did NOT get the requested register information"
+//                  ANSI_COLOR_RESET );
+//     }
+
+//     cout << endl;
+//     delete[] ( buffer );
+//     return -3;
+// }

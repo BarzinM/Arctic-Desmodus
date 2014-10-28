@@ -608,29 +608,29 @@ void serialClose ( int serialCommunicationHandler )
     close ( serialCommunicationHandler );
 }
 
-int getIntegerInput ( int *input )
-{
-    string line;
-    cin >> line;
-    istringstream s ( line );
+// int getIntegerInput ( int *input )
+// {
+//     string line;
+//     cin >> line;
+//     istringstream s ( line );
 
-    if ( ! ( s >> *input ) )
-    {
-        printf ( "\n" ANSI_COLOR_RED "Input was not a number" ANSI_COLOR_RESET );
-        return -1;
-    }
+//     if ( ! ( s >> *input ) )
+//     {
+//         printf ( "\n" ANSI_COLOR_RED "Input was not a number" ANSI_COLOR_RESET );
+//         return -1;
+//     }
 
-    char c;
+//     char c;
 
-    if ( s >> c )
-    {
-        printf ( "\n" ANSI_COLOR_RED "Input included non-numerical characters"
-                 ANSI_COLOR_RESET );
-        return -2;
-    }
+//     if ( s >> c )
+//     {
+//         printf ( "\n" ANSI_COLOR_RED "Input included non-numerical characters"
+//                  ANSI_COLOR_RESET );
+//         return -2;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
 vector<string> showRegister ( string &path )
 {
@@ -842,14 +842,14 @@ int developerMode ( int serialCommunicationHandler )
 int main()
 {
     UM7 imu;
-    imu.echoPacket(2);
-    imu.config();
+    imu.echoPacket(5);
+    // imu.config();
     printf ( ANSI_COLOR_CYAN
              "######################## UM7 Communication, BarzinM #######################\n"
              ANSI_COLOR_RESET );
     int serialCommunicationHandler = serialSetup();
-    developerMode ( serialCommunicationHandler );
-    echoPacketsInDeveloperMode ( serialCommunicationHandler );
+    // developerMode ( serialCommunicationHandler );
+    // echoPacketsInDeveloperMode ( serialCommunicationHandler );
     serialClose ( serialCommunicationHandler );
     return 0;
 }
