@@ -12,6 +12,7 @@
 #include <time.h>
 #include <sstream>
 #include <vector>
+#include </home/naslab/BRZN/SensorFusion/UM7.h>
 
 #define ANSI_COLOR_RED     "\x1b[31;1m"
 #define ANSI_COLOR_GREEN   "\x1b[32;1m"
@@ -486,7 +487,7 @@ int confirmWrite ( int serialCommunicationHandler, int requested_address )
                     }
                     else
                     {
-                        cout << endl << computer_checksum << "   " << received_checksum << endl;
+                        // cout << endl << computer_checksum << "   " << received_checksum << endl;
                         printf ( "\n" ANSI_COLOR_RED "Corrupted" ANSI_COLOR_RESET );
                     }
                 }
@@ -657,7 +658,7 @@ int getFrequency()
     {
         if ( frequency < 0 )
         {
-            frequency = 1;
+            frequency = 0;
         }
     }
 
@@ -840,6 +841,9 @@ int developerMode ( int serialCommunicationHandler )
 
 int main()
 {
+    UM7 imu;
+    imu.echoPacket(2);
+    imu.config();
     printf ( ANSI_COLOR_CYAN
              "######################## UM7 Communication, BarzinM #######################\n"
              ANSI_COLOR_RESET );
