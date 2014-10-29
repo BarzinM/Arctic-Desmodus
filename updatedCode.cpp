@@ -841,12 +841,21 @@ int developerMode ( int serialCommunicationHandler )
 
 int main()
 {
+    Packet test;
+    test.packet_type=0;
+    test.address=85;
     UM7 imu;
-    imu.echoPacket(5);
+
+
+    imu.packetRequest(&test);
+    test.address=23;
+    imu.packetRequest(&test);
+    // imu.echoPacket(5);
     // imu.config();
     printf ( ANSI_COLOR_CYAN
              "######################## UM7 Communication, BarzinM #######################\n"
              ANSI_COLOR_RESET );
+    cout << "Got to line: " << __LINE__ << ", File: " << __FILE__ << endl;
     int serialCommunicationHandler = serialSetup();
     // developerMode ( serialCommunicationHandler );
     // echoPacketsInDeveloperMode ( serialCommunicationHandler );
