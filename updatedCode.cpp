@@ -225,11 +225,11 @@ int getRegister ( int serialCommunicationHandler, int requested_address,
 // DISPLAY PACKETS RECEIVED FROM UM7 //
 ///////////////////////////////////////
 /**
- * [echoPacketsInDeveloperMode  description]
+ * [echoPacketsInconfigurationMode  description]
  * @param  serialCommunicationHandler
  * @return
  */
-int echoPacketsInDeveloperMode ( int serialCommunicationHandler )
+int echoPacketsInConfigurationMode ( int serialCommunicationHandler )
 {
     int address;
     int packet_type;
@@ -681,7 +681,7 @@ int insertByte ( int serialCommunicationHandler, int address, int byte_index )
     packetRequest ( serialCommunicationHandler, address, &bytes_in_binary );
 }
 
-int developerMode ( int serialCommunicationHandler )
+int configurationMode ( int serialCommunicationHandler )
 {
     bool exitMode = 0;
     string binary;
@@ -692,7 +692,7 @@ int developerMode ( int serialCommunicationHandler )
 
     while ( exitMode == 0 )
     {
-        cout << "\nYou are in developer mode. Choose an option" << endl << endl;
+        cout << "\nYou are in configuration mode. Choose an option" << endl << endl;
         cout << "        ____________________________________________________________"
              << endl;
         cout << "        |    |                                                     |"
@@ -830,7 +830,7 @@ int developerMode ( int serialCommunicationHandler )
         }
     }
 
-    cout << "You are exiting developer mode in 3 seconds.\n3..." << endl;
+    cout << "You are exiting configuration mode in 3 seconds.\n3..." << endl;
     sleep ( 1 );
     cout << "2..." << endl;
     sleep ( 1 );
@@ -842,23 +842,21 @@ int developerMode ( int serialCommunicationHandler )
 int main()
 {
     Packet test;
-    test.packet_type=0;
-    test.address=85;
+    test.packet_type = 0;
+    test.address = 85;
     UM7 imu;
-
-
     imu.packetRequest(&test);
-    test.address=23;
-    imu.packetRequest(&test);
+    // test.address=23;
+    // imu.packetRequest(&test);
     // imu.echoPacket(5);
-    // imu.config();
+    imu.config();
     printf ( ANSI_COLOR_CYAN
              "######################## UM7 Communication, BarzinM #######################\n"
              ANSI_COLOR_RESET );
     cout << "Got to line: " << __LINE__ << ", File: " << __FILE__ << endl;
     int serialCommunicationHandler = serialSetup();
-    // developerMode ( serialCommunicationHandler );
-    // echoPacketsInDeveloperMode ( serialCommunicationHandler );
+    // configurationMode ( serialCommunicationHandler );
+    // echoPacketsInconfigurationMode ( serialCommunicationHandler );
     serialClose ( serialCommunicationHandler );
     return 0;
 }

@@ -34,8 +34,9 @@ public:
     int packet_type;
     int address;
     int length = 0;
-    char *data;
+    char *data = new char [0];
     uint16_t checksum;
+
     void calculateLength ( Packet *received_packet );
     void getLength();
     Packet();
@@ -47,25 +48,21 @@ public:
 class UM7
 {
 private:
-
     vector<string> register_name;
-
-
     int serial_handler;
     int error;
 public:
     void findBeginning();
     void setError ( int err );
-    int getFrequency();
-    // int getIntegerInput ( int *input );
-
-    int getPacketType();
-    int getAddress();
+    int getFrequency();     // TODO
+    int getPacketType();    //TODO
+    int getAddress();       // TODO
     void echoPacket ( int iterations );
-    int overwriteRegister ( int address, int byte_index );
+    int overwriteRegister ( Packet *config_packet , int start_bit,
+                            int bits_length );
     int packetRequest ( Packet *config_packet );
-    int registerWrite ( int address, vector<string> *command );
-    int confirmWrite ( int requested_address );
+    int registerWrite ( Packet *config_packet );
+    int confirmWrite ( int requested_address );     //TODO
     int getRegister ( Packet *config_packet );
 
     UM7();
@@ -119,7 +116,7 @@ Packet::Packet() {};
 
 Packet::~Packet()
 {
-    if ( length != 0 )
+    // if ( length != 0 )
     {
         delete[] ( data );
     }
@@ -376,12 +373,12 @@ void UM7::config()
     string binary;
     int input = -1;
     unsigned int address;
-    int byte_index;
+    int start_bit, bits_length;
     int raw_rate = 0;
 
     while ( exitMode == 0 )
     {
-        cout << "\nYou are in developer mode. Choose an option" << endl << endl;
+        cout << "\nYou are in configuration mode. Choose an option" << endl << endl;
         cout << "        ____________________________________________________________"
              << endl;
         cout << "        |    |                                                     |"
@@ -458,68 +455,84 @@ void UM7::config()
 
         case 1:
             address = 2;
-            byte_index = 3;
+            start_bit =7;
+            bits_length =8;
 
         case 2:
             address = 4;
-            byte_index = 3;
+            start_bit =7;
+            bits_length =8;
 
         case 3:
             address = 6;
-            byte_index = 0;
+            start_bit =31;
+            bits_length =8;
 
         case 4:
             address = 5;
-            byte_index = 0;
+            start_bit =31;
+            bits_length =8;
 
         case 5:
             address = 5;
-            byte_index = 1;
+            start_bit =23;
+            bits_length =8;
 
         case 6:
             address = 5;
-            byte_index = 2;
+            start_bit =15;
+            bits_length =8;
 
         case 7:
             address = 5;
-            byte_index = 3;
+            start_bit =7;
+            bits_length =8;
 
         case 8:
             address = 1;
-            byte_index = 0;
+            start_bit =31;
+            bits_length =8;
 
         case 9:
             address = 1;
-            byte_index = 1;
+            start_bit =23;
+            bits_length =8;
 
         case 10:
             address = 1;
-            byte_index = 2;
+            start_bit =15;
+            bits_length =8;
 
         case 11:
             address = 3;
-            byte_index = 0;
+            start_bit =31;
+            bits_length =8;
 
         case 12:
             address = 3;
-            byte_index = 1;
+            start_bit =23;
+            bits_length =8;
 
         case 13:
             address = 3;
-            byte_index = 2;
+            start_bit =15;
+            bits_length =8;
 
         case 14:
             address = 2;
-            byte_index = 0;
+            start_bit =31;
+            bits_length =8;
         }
 
         if ( input != 0 )
         {
-            // insertByte ( serialCommunicationHandler, address, byte_index );
+            start_bit = 31 - start_bit;
+            error = overwriteRegister ( Packet * config_packet , int start_bit,
+            int bits_length )
         }
     }
 
-    cout << "You are exiting developer mode in 3 seconds.\n3..." << endl;
+    cout << "You are exiting configuration mode in 3 seconds.\n3..." << endl;
     sleep ( 1 );
     cout << "2..." << endl;
     sleep ( 1 );
@@ -562,7 +575,7 @@ int UM7::packetRequest ( Packet *config_packet )
 int UM7::getRegister ( Packet *config_packet )
 {
     Packet temp_packet;
-    string single_byte;
+    string byte;
     bool found = 0;
     uint16_t received_checksum;
     //     /* *** READ *** */
@@ -582,7 +595,8 @@ int UM7::getRegister ( Packet *config_packet )
         n = read ( serial_handler, buffer, 1 );
         temp_packet.address = int ( uint8_t ( buffer[0] ) );
 
-        if ( config_packet->address != temp_packet.address )
+        if ( config_packet->address != temp_packet.address
+                || config_packet->length != temp_packet.length )
         {
             read ( serial_handler, buffer, ( temp_packet.length * 4 ) + 2 );
             continue;
@@ -594,11 +608,9 @@ int UM7::getRegister ( Packet *config_packet )
         {
             n = read ( serial_handler, buffer, 1 );
             config_packet->data[i] = *buffer;
-            config_packet->data[i] = *buffer;
-            single_byte = bitset<8> ( int (
-                                          config_packet->data[i] ) ).to_string(); //to binary
+            byte = bitset<8> ( int ( config_packet->data[i] ) ).to_string(); //to binary
             printf ( "%3i: ", int ( uint8_t ( buffer[0] ) ) );
-            cout << single_byte << " | ";
+            cout << byte << " | ";
         }
 
         n = read ( serial_handler, buffer, 2 );
@@ -645,4 +657,69 @@ int UM7::getRegister ( Packet *config_packet )
     cout << endl;
     delete[] ( buffer );
     return -3;
+}
+
+int UM7::registerWrite ( Packet *config_packet )
+{
+    /* *** WRITE *** */
+    // Start of packet
+    uint16_t computer_checksum = config_packet->generateChecksum();
+    int data_length = ( config_packet->length );
+    char *cmd = new char [data_length + 7];
+    // Set packet type
+    char packet_type = ( bitset<8> ( "10000000" ).to_ulong() );
+    //unsigned int address = 2;
+    // Construct the command
+    cmd[0] = 's';
+    cmd[1] = 'n';
+    cmd[2] = 'p';
+    computer_checksum = 's' + 'n' + 'p';
+    cmd[3] = config_packet->packet_type;
+    computer_checksum += uint8_t ( cmd[3] );
+    cmd[4] = config_packet->address;
+
+    for ( int i = 0; i < data_length; i++ )
+    {
+        cmd[5 + i] = config_packet->data[i];
+    }
+
+    cmd[5 + data_length] = uint8_t ( computer_checksum >> 8 );
+    cmd[6 + data_length] = uint8_t ( computer_checksum );
+    // for( int n_written=0;n_written<11; ){
+    // n_written += write( serialCommunicationHandler, cmd+n_written, 11 );
+    // }
+    write ( serial_handler, cmd, data_length + 7 );
+    // int error = confirmWrite ( serialCommunicationHandler, address );
+    // cout << endl << "error is " << error ;
+    // packetRequest( serialCommunicationHandler, address );
+    return 0;
+}
+
+int UM7::overwriteRegister ( Packet *config_packet , int start_bit,
+                             int bits_length )
+{
+    char *data2 = new char [bits_length];
+    int error = 0;
+
+    for ( int i = 0; i < bits_length; i++ )
+    {
+        data2[i] = config_packet->data[i + start_bit];
+    }
+
+    // setup packet
+    Packet requester;
+    requester.packet_type = 0;
+    requester.address = config_packet->address;
+    // get register
+    error = packetRequest ( config_packet );
+
+    // make changes
+    for ( int i = 0; i < bits_length; i++ )
+    {
+        config_packet->data[i + start_bit] = data2[i];
+    }
+
+    // write register
+    registerWrite ( config_packet );
+    // confirm write
 }

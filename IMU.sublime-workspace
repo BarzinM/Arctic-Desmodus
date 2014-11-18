@@ -1,0 +1,790 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getLength"
+			],
+			[
+				"packet",
+				"packet_type"
+			],
+			[
+				"g",
+				"generateChecksum"
+			],
+			[
+				"ge",
+				"getLength"
+			],
+			[
+				"uint",
+				"uint8_t"
+			],
+			[
+				"pack",
+				"packet_type"
+			],
+			[
+				"recie",
+				"received_pkt"
+			],
+			[
+				"config",
+				"config_packet"
+			],
+			[
+				"temp",
+				"temp_packet"
+			],
+			[
+				"confi",
+				"config_packet"
+			],
+			[
+				"uin",
+				"uint8_t"
+			],
+			[
+				"serial",
+				"serial_handler"
+			],
+			[
+				"binary",
+				"binary_data"
+			],
+			[
+				"requ",
+				"request_packet"
+			],
+			[
+				"rec",
+				"received_checksum"
+			],
+			[
+				"check",
+				"checkHealth"
+			],
+			[
+				"reci",
+				"received_pkt"
+			],
+			[
+				"re",
+				"received_checksum"
+			],
+			[
+				"UM",
+				"UM7Packet"
+			],
+			[
+				"By",
+				"byte_index"
+			],
+			[
+				"byte",
+				"byte_index"
+			],
+			[
+				"bytes",
+				"bytes_in_binary"
+			],
+			[
+				"binar",
+				"bytes_in_binary"
+			],
+			[
+				"by",
+				"bytes_in_binary"
+			],
+			[
+				"read",
+				"readRegister"
+			],
+			[
+				"ad",
+				"requested_address"
+			],
+			[
+				"erro",
+				"errno"
+			],
+			[
+				"if",
+				"ifBad"
+			],
+			[
+				"exit",
+				"exitMode"
+			],
+			[
+				"raw",
+				"raw_rate"
+			],
+			[
+				"ser",
+				"serialCommunicationHandler"
+			],
+			[
+				"ra",
+				"raw_rate"
+			],
+			[
+				"ANSI_COLOR_re",
+				"ANSI_COLOR_RED"
+			],
+			[
+				"ansi",
+				"ANSI_COLOR_RESET"
+			],
+			[
+				"n",
+				"n_written"
+			],
+			[
+				"write",
+				"writeSerial"
+			],
+			[
+				"mako",
+				"mako"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "updatedCode.cpp",
+			"settings":
+			{
+				"buffer_size": 27292,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "UM7.h",
+			"settings":
+			{
+				"buffer_size": 17296,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 390.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package control install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"mard",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markd",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"astyle",
+				"SublimeAStyleFormatter: Format Current File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"comm",
+				"Toggle Comment"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"late",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"latex",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/naslab/Documents/ACC"
+	],
+	"file_history":
+	[
+		"/home/naslab/BRZN/SensorFusion/README.md",
+		"/home/naslab/BRZN/SensorFusion/updatedCode.cpp",
+		"/home/naslab/BRZN/SensorFusion/UM7_Functions.h",
+		"/home/naslab/.config/sublime-text-3/Packages/DocBlockr/Base File.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/SublimeAStyleFormatter/Default (Linux).sublime-keymap",
+		"/home/naslab/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/User/MarkdownPreview.sublime-settings",
+		"/home/naslab/BRZN/SensorFusion/playWithCurses.cpp",
+		"/home/naslab/Documents/Acc15/ACCBibs.bib",
+		"/tmp/ACC2015_draft_Barzin_Daryl_Nina_09-21.tex",
+		"/home/naslab/Documents/Acc15/ACC2015_draft_Barzin_Daryl_Nina_09-19.tex",
+		"/tmp/tex_stuff.tex",
+		"/home/naslab/Documents/Acc15/ACC2015_draft_Barzin_Daryl_Nina_09-17.tex",
+		"/tmp/ACC2015_draft_Barzin_Daryl_Nina_09-17[Conflict]-1.tex",
+		"/tmp/Barzin_Moridian_Thesis.tex",
+		"/tmp/Bibliography.tex",
+		"/home/naslab/Documents/ACC/ACC2015_draft_Barzin_Daryl_Nina_09-15.tex",
+		"/home/naslab/.cache/.fr-Z0If7e/README.md",
+		"/home/naslab/.config/sublime-text-3/Packages/LaTeXTools/README.markdown",
+		"/home/naslab/.cache/.fr-OxbTXi/bare_conf.tex",
+		"/home/naslab/eric.m",
+		"/home/naslab/darylPersonal/claptrap/android/README.mkdn",
+		"/home/naslab/darylPersonal/claptrap/.repo/manifests/default.xml",
+		"/home/naslab/darylPersonal/claptrap/platform_manifest/default.xml",
+		"/home/naslab/darylPersonal/randoScripts/fstrim/trim",
+		"/home/naslab/darylPersonal/randoScripts/syncGrive/syncGrive",
+		"/home/naslab/darylPersonal/randoScripts/README.md",
+		"/home/naslab/darylPersonal/randoScripts/grive/syncGrive"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"temp_packet",
+			"delete",
+			"serialCommunicationHandler",
+			"binary",
+			"getRegister",
+			"computer_checksum",
+			"serialCommunicationHandler",
+			"__",
+			"cout << \"Got to line: \" << __LINE__ << \", File: \" << __FILE__ << endl;",
+			"UM7",
+			"computed_checksum",
+			"computer_checksum",
+			"vector",
+			"computer_checksum += uint8_t",
+			"address",
+			"packet_type",
+			"getIntegerInput",
+			"getinte",
+			"<< endl;",
+			"serialCommunicationHandler",
+			"handler",
+			"register",
+			"serialCommunicationHandler",
+			"vector",
+			"checksum",
+			"paran",
+			"unpad-paren",
+			" line",
+			"line",
+			"( )",
+			"  )",
+			")",
+			"(  ",
+			"(",
+			"------------------------------------------------------------\"",
+			"----------------------------------------------------",
+			"\\t",
+			".\" << e",
+			"\" << ",
+			"\"\\t",
+			"\"\\t ",
+			"\"----------------------------------------------------\"",
+			" <<",
+			" \"----------------------------------------------------\" ",
+			"\"----------------------------------------------------\"",
+			" <<",
+			" \"----------------------------------------------------\" ",
+			"\"----------------------------------------------------\"",
+			"raw_rate",
+			"filterInput",
+			"someFunction",
+			"Healthy",
+			"confirmWrite",
+			"registerWrite",
+			"push_back",
+			"packetRequest",
+			"readPacketsInDeveloperMode",
+			"readRegister",
+			"temp",
+			"registerWrite",
+			"serialwrite",
+			"bytes_in_binary",
+			"found",
+			"new",
+			"packet_type",
+			"decimal",
+			"flush",
+			"int(uint8_t(buffer[0]))",
+			"packet_type_string",
+			"binary",
+			"packet_type",
+			"endl",
+			"buff",
+			"binary",
+			"b",
+			"double",
+			"serialCom",
+			"USB",
+			"fd1",
+			"math",
+			"robot",
+			"connector_"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"()",
+			" )",
+			"( ",
+			"fig:connector_"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "updatedCode.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 27292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26982,
+								26982
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 14712.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "UM7.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17296,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4187,
+								4187
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"spell_check": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2961.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 137.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "IMU.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 246.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
