@@ -4,16 +4,184 @@
 		"selected_items":
 		[
 			[
+				"battery",
+				"battery_step"
+			],
+			[
+				"hi",
+				"history_x"
+			],
+			[
+				"iver",
+				"iver_trajectory"
+			],
+			[
+				"batter",
+				"battery_bar"
+			],
+			[
+				"ivers",
+				"ivers"
+			],
+			[
+				"batt",
+				"battery"
+			],
+			[
+				"recha",
+				"recharge_time"
+			],
+			[
+				"numb",
+				"number_of_forward_steps"
+			],
+			[
+				"number",
+				"number_of_forward_steps  (variable)"
+			],
+			[
+				"remin",
+				"remaining_x"
+			],
+			[
+				"po",
+				"position_x  (variable)"
+			],
+			[
+				"positio",
+				"position_calculation_y"
+			],
+			[
+				"forwa",
+				"motion_forward_step"
+			],
+			[
+				"rechar",
+				"recharging"
+			],
+			[
+				"ope",
+				"operation_time  (variable)"
+			],
+			[
+				"change",
+				"change_right"
+			],
+			[
+				"position",
+				"position_y  (variable)"
+			],
+			[
+				"ba",
+				"battery"
+			],
+			[
+				"path",
+				"path_length"
+			],
+			[
+				"time",
+				"time_step"
+			],
+			[
+				"number_of",
+				"number_of_gliders"
+			],
+			[
+				"target",
+				"target_y"
+			],
+			[
+				"cal",
+				"calculateTime"
+			],
+			[
+				"moving",
+				"moving_distance"
+			],
+			[
+				"motion",
+				"motion_forward_step  (variable)"
+			],
+			[
+				"operation",
+				"operation_distance"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"travel",
+				"travel_time"
+			],
+			[
+				"char",
+				"chargers_x"
+			],
+			[
+				"stop",
+				"stop_time"
+			],
+			[
+				"deplo",
+				"deploy_time"
+			],
+			[
+				"num",
+				"number_of_rechargers"
+			],
+			[
+				"ch",
+				"chargers"
+			],
+			[
+				"charger",
+				"chargers_x"
+			],
+			[
+				"explo",
+				"explorer_speed"
+			],
+			[
+				"se",
+				"set_data"
+			],
+			[
+				"ex",
+				"explorer_speed"
+			],
+			[
+				"tota",
+				"total_length"
+			],
+			[
+				"explorer",
+				"explorer_operation_distance"
+			],
+			[
+				"expl",
+				"explorer_operation_distance"
+			],
+			[
+				"exp",
+				"explorer_operation_time"
+			],
+			[
+				"bits",
+				"bits_form_user"
+			],
+			[
+				"byte",
+				"byte"
+			],
+			[
 				"temp",
-				"temp32bit"
+				"temp32bit2"
 			],
 			[
 				"data",
 				"data_length"
-			],
-			[
-				"bits",
-				"bits_length"
 			],
 			[
 				"packet",
@@ -92,10 +260,6 @@
 				"byte_index"
 			],
 			[
-				"byte",
-				"byte_index"
-			],
-			[
 				"bytes",
 				"bytes_in_binary"
 			],
@@ -164,28 +328,33 @@
 	"buffers":
 	[
 		{
-			"file": "updatedCode.cpp",
+			"file": "/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
 			"settings":
 			{
-				"buffer_size": 27325,
+				"buffer_size": 10435,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "UM7.h",
+			"contents": "Special topics:\n\n1- NAGA NITHIN TEJA KONDIPATI: Research 3D path tracking control systems (Fuzzy, PID, MPC) and develop the models in Python and test on a multi-copter\n\n2- Sumeet Chhawri: Design a (short-range, i.e. touching) wireless system to transfer energy and data simultaneously and use wireless signal strength for distance estimation: One solution is to design modules combined of inductive chargers and low-power Bluetooth components.\n\n3- Mugesh Shanmugam Pillai Gnanasekar: Assembly and test of a multi-copter. Put BeagleBone on it and develop a simple actuator control system.\n\nAdmitted student: \n\n1- Dipayan Das: Please ask him to tell us about the following: His projects and experiences with:C/C++, Python, OpenCV, SLAM,Probabilistic Programming, Kalman Filter. Does he have videos or pictures of his Autonomous Grabber Robot project.",
 			"settings":
 			{
-				"buffer_size": 20286,
-				"line_ending": "Unix"
+				"buffer_size": 848,
+				"line_ending": "Unix",
+				"name": "Special topics:"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 96.0,
+		"height": 369.0,
 		"selected_items":
 		[
+			[
+				"spac",
+				"Indentation: Convert to Spaces"
+			],
 			[
 				"install ",
 				"Package Control: Install Package"
@@ -255,7 +424,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 602.0
 	},
 	"console":
 	{
@@ -280,11 +449,36 @@
 	],
 	"file_history":
 	[
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_layouts/page.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/services.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/posts.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/agency.css",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_config.yml",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/grid.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/style.css",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/default.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/header.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/head.html",
+		"/home/naslab/BRZN/SensorFusion/UM7.h",
+		"/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/search.json",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_includes/head.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/assets/css/main.scss",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/index.html",
+		"/home/naslab/BRZN/flying-spotted-salamander/classes.py",
+		"/home/naslab/BRZN/flying-spotted-salamander/fronEnd.py",
+		"/home/naslab/BRZN/SensorFusion/updatedCode.cpp",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/css/font-awesome.css",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/fonts/FontAwesome.otf",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/css/font-awesome.min.css",
+		"/home/naslab/BRZN/greater-honey-badger-guide/README.md",
+		"/home/naslab/BRZN/flying-spotted-salamander/twoDimSim.py",
+		"/home/naslab/BRZN/flying-spotted-salamander/twoDimSimTwoIVER.py",
+		"/home/naslab/BRZN/flying-spotted-salamander/base.py",
 		"/home/naslab/.config/sublime-text-3/Packages/SublimeAStyleFormatter/Default (Linux).sublime-keymap",
 		"/home/naslab/BRZN/SensorFusion/makefile",
 		"/home/naslab/BRZN/SensorFusion/readSerial.cpp",
 		"/home/naslab/BRZN/SensorFusion/README.md",
-		"/home/naslab/BRZN/SensorFusion/updatedCode.cpp",
 		"/home/naslab/BRZN/SensorFusion/UM7_Functions.h",
 		"/home/naslab/.config/sublime-text-3/Packages/DocBlockr/Base File.sublime-settings",
 		"/home/naslab/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
@@ -329,6 +523,81 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"100",
+			"posts",
+			"370px",
+			"400px",
+			"css",
+			"\n",
+			"ivers",
+			"x",
+			"iver",
+			"self.gliders_position",
+			"gliders_position",
+			"self.ivers_position",
+			"self.gliders",
+			"self.ivers",
+			"number_of_forward_steps",
+			"estimated_",
+			"x",
+			"time_step",
+			"print",
+			"positionEstimation",
+			"self",
+			"ivers",
+			"chargers",
+			"cos(",
+			"char",
+			"set_",
+			"set_text",
+			"set_",
+			" ",
+			"self.gliders[i].",
+			"number",
+			"right",
+			"forward",
+			"path_length",
+			"number_of_rechargers",
+			"position_",
+			"t",
+			"x",
+			"self.position",
+			"recharge_time",
+			"number_of_rechargers",
+			"racharge_time",
+			"basic_animation",
+			"chargers_x",
+			"hargers_x>self.total_length:\n        #     self.",
+			"chargers_x",
+			"stop_time",
+			"iver_",
+			"chargers_",
+			"recharge_time",
+			"explorer_speed",
+			"charger_speed",
+			"deploy_time",
+			"travel_time",
+			"number_of_rechargers",
+			"time_start",
+			"total_length",
+			"base_distance",
+			"recharger_speed",
+			"time_list",
+			"time",
+			"0",
+			"line",
+			"0",
+			"4",
+			"r",
+			"->",
+			"config_packet->address",
+			"->",
+			"getFre",
+			"config_packet->data",
+			"temp8bit",
+			"temp32bit",
+			"temp8bit2",
+			"temp32bit2",
 			"temp8bit",
 			"data",
 			"temp8bit",
@@ -381,82 +650,7 @@
 			"getPacketType",
 			"getFrequency",
 			"setError",
-			"findBeginning",
-			"getregister",
-			"confirmwrite",
-			"registerWrite",
-			"overwriteRegister",
-			"echoPacket",
-			"config",
-			"temp_packet",
-			"delete",
-			"serialCommunicationHandler",
-			"binary",
-			"getRegister",
-			"computer_checksum",
-			"serialCommunicationHandler",
-			"__",
-			"cout << \"Got to line: \" << __LINE__ << \", File: \" << __FILE__ << endl;",
-			"UM7",
-			"computed_checksum",
-			"computer_checksum",
-			"vector",
-			"computer_checksum += uint8_t",
-			"address",
-			"packet_type",
-			"getIntegerInput",
-			"getinte",
-			"<< endl;",
-			"serialCommunicationHandler",
-			"handler",
-			"register",
-			"serialCommunicationHandler",
-			"vector",
-			"checksum",
-			"paran",
-			"unpad-paren",
-			" line",
-			"line",
-			"( )",
-			"  )",
-			")",
-			"(  ",
-			"(",
-			"------------------------------------------------------------\"",
-			"----------------------------------------------------",
-			"\\t",
-			".\" << e",
-			"\" << ",
-			"\"\\t",
-			"\"\\t ",
-			"\"----------------------------------------------------\"",
-			" <<",
-			" \"----------------------------------------------------\" ",
-			"\"----------------------------------------------------\"",
-			" <<",
-			" \"----------------------------------------------------\" ",
-			"\"----------------------------------------------------\"",
-			"raw_rate",
-			"filterInput",
-			"someFunction",
-			"Healthy",
-			"confirmWrite",
-			"registerWrite",
-			"push_back",
-			"packetRequest",
-			"readPacketsInDeveloperMode",
-			"readRegister",
-			"temp",
-			"registerWrite",
-			"serialwrite",
-			"bytes_in_binary",
-			"found",
-			"new",
-			"packet_type",
-			"decimal",
-			"flush",
-			"int(uint8_t(buffer[0]))",
-			"packet_type_string"
+			"findBeginning"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -484,19 +678,23 @@
 			[
 				{
 					"buffer": 0,
-					"file": "updatedCode.cpp",
+					"file": "/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 27325,
+						"buffer_size": 10435,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21630,
-								21630
+								9172,
+								9172
+							],
+							[
+								9191,
+								9191
 							]
 						],
 						"settings":
@@ -605,42 +803,36 @@
 							},
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
+							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10011.0,
+						"translation.y": 3350.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 1,
-					"file": "UM7.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20286,
+						"buffer_size": 848,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20194,
-								20194
+								848,
+								848
 							]
 						],
 						"settings":
 						{
+							"auto_name": "Special topics:",
 							"codeintel": true,
 							"codeintel_config":
 							{
@@ -746,14 +938,13 @@
 							"codeintel_tooltips": "popup",
 							"spell_check": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 12506.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -761,7 +952,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -776,18 +967,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -805,10 +989,10 @@
 	{
 		"height": 0.0
 	},
-	"project": "IMU.sublime-project",
+	"project": "untitled.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -835,7 +1019,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

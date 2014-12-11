@@ -13,6 +13,8 @@
 #include <time.h>
 #include <sstream>
 #include <vector>
+#include <limits.h>
+#include <math.h>
 
 #define ANSI_COLOR_RED     "\x1b[31;1m"
 #define ANSI_COLOR_GREEN   "\x1b[32;1m"
@@ -24,9 +26,6 @@
 
 using namespace std;
 
-//cout << "Got to line: " << __LINE__ << ", File: " << __FILE__ << endl;
-
-
 class Packet
 {
 private:
@@ -37,6 +36,7 @@ public:
     char *data = new char [0];
     uint16_t checksum;
 
+    float GetFloat32 ( string Binary );
     void calculateLength ( Packet *received_packet );
     void getLength();
     Packet();
@@ -83,14 +83,13 @@ int getIntegerInput ( int *input )
     string line;
     cin >> line;
     istringstream s ( line );
+    char c;
 
     if ( ! ( s >> *input ) )
     {
         printf ( "\n" ANSI_COLOR_RED "Input was not a number" ANSI_COLOR_RESET );
         return -1;
     }
-
-    char c;
 
     if ( s >> c )
     {
@@ -110,6 +109,33 @@ void UM7::setError ( int err )
     {
         exit ( error );
     }
+}
+
+// Convert the 32-bit binary into the decimal
+float Packet::GetFloat32 ( string Binary )
+{
+    bitset<32> set ( Binary );
+    int HexNumber = set.to_ulong();
+    bool negative  = !! ( HexNumber & 0x80000000 );
+    int  exponent  = ( HexNumber & 0x7f800000 ) >> 23;
+    int sign = negative ? -1 : 1;
+    // Subtract 127 from the exponent
+    exponent -= 127;
+    // Convert the mantissa into decimal using the
+    // last 23 bits
+    int power = -1;
+    float total = 0.0;
+
+    for ( int i = 0; i < 23; i++ )
+    {
+        int c = Binary[ i + 9 ] - '0';
+        total += ( float ) c * ( float ) pow ( 2.0, power );
+        power--;
+    }
+
+    total += 1.0;
+    float value = sign * ( float ) pow ( 2.0, exponent ) * total;
+    return value;
 }
 
 Packet::Packet() {};
@@ -305,10 +331,10 @@ void UM7::echoPacket ( int iter )
     Packet received_pkt;
     uint16_t received_checksum;
     unsigned char decimal;
-    string binary;
+    string binary, binary32;
     char buffer[100];
     /* *** READ *** */
-    int n;
+    int n, reg_address;
     int buffer_value;
     /* Whole response*/
     tcflush ( serial_handler, TCIOFLUSH );
@@ -329,15 +355,14 @@ void UM7::echoPacket ( int iter )
         printf ( "\nAddress is %i = %#x", received_pkt.address, received_pkt.address );
         cout << " = " << bitset<8> ( received_pkt.address ).to_string();
         cout << "\nData length = " << received_pkt.length << " registers";
-        // else{cout<<endl<<"Skipped";}
-        // if( address==86||address==112||address==97||address==85 ){continue;}//else{i=iter;}
         binary = bitset<8> ( received_pkt.address ).to_string(); //to binary
 
         for ( int i = 0; i < received_pkt.length * 4; i++ )
         {
             if ( i % 4 == 0 )
             {
-                printf ( "\nReg %3i:  | ", received_pkt.address + i / 4 );
+                reg_address = received_pkt.address + i / 4;
+                printf ( "\nReg %3i:  | ", reg_address );
             }
 
             n = read ( serial_handler, buffer, 1 );
@@ -345,6 +370,14 @@ void UM7::echoPacket ( int iter )
             binary = bitset<8> ( buffer[0] ).to_string(); //to binary
             printf ( "%3u: ", ( uint8_t ( received_pkt.data[i] ) ) );
             cout << binary << " | ";
+            binary32 += binary;
+
+            if ( i % 4 == 3 )
+            {
+                float boob = received_pkt.GetFloat32 ( binary32 );
+                cout << "real value is " << boob << endl;
+                binary32 = "";
+            }
         }
 
         n = read ( serial_handler, buffer, 2 );
@@ -366,7 +399,25 @@ void UM7::echoPacket ( int iter )
     cout << endl;
     setError ( 0 );
 }
+int UM7::getFrequency()
+{
+    int  frequency;
+    getIntegerInput ( &frequency );
 
+    if ( frequency > 255 )
+    {
+        frequency = 255;
+    }
+    else
+    {
+        if ( frequency < 0 )
+        {
+            frequency = 0;
+        }
+    }
+
+    return frequency;
+}
 void UM7::config()
 {
     bool exitMode = 0;
@@ -375,10 +426,12 @@ void UM7::config()
     unsigned int address;
     int start_bit, bits_length;
     int raw_rate = 0;
+    Packet config_packet;
 
     while ( exitMode == 0 )
     {
-        cout << "\nYou are in configuration mode. Choose an option" << endl << endl;
+        cout << "\nYou are in configuration mode. Thou shall choose an option" << endl
+             << endl;
         cout << "        ____________________________________________________________"
              << endl;
         cout << "        |    |                                                     |"
@@ -427,6 +480,14 @@ void UM7::config()
              << endl;
         cout << "        | 14 | Set TEMPERATURE data transmission rate.             |"
              << endl;
+        cout << "        | 15 | Set HEALTH monitoring rate.                         |"
+             << endl;
+        cout << "        |____|_____________________________________________________|"
+             << endl;
+        cout << "        |    |                                                     |"
+             << endl;
+        cout << "        | 99 | Show IMU outputs.                                   |"
+             << endl;
         cout << "        |____|_____________________________________________________|"
              << endl;
         cout << "        |    |                                                     |"
@@ -440,7 +501,7 @@ void UM7::config()
 
         if ( error != 0 )
         {
-            cout << "\nBad input try again" << endl;
+            cout << "\nTry again or enter '0' to exit." << endl;
             continue;
         }
 
@@ -455,80 +516,114 @@ void UM7::config()
 
         case 1:
             address = 2;
-            start_bit =7;
-            bits_length =8;
+            start_bit = 7;
+            bits_length = 8;
+            break;
 
         case 2:
             address = 4;
-            start_bit =7;
-            bits_length =8;
+            start_bit = 7;
+            bits_length = 8;
+            break;
 
         case 3:
             address = 6;
-            start_bit =31;
-            bits_length =8;
+            start_bit = 31;
+            bits_length = 8;
+            break;
 
         case 4:
             address = 5;
-            start_bit =31;
-            bits_length =8;
+            start_bit = 31;
+            bits_length = 8;
+            break;
 
         case 5:
             address = 5;
-            start_bit =23;
-            bits_length =8;
+            start_bit = 23;
+            bits_length = 8;
+            break;
 
         case 6:
             address = 5;
-            start_bit =15;
-            bits_length =8;
+            start_bit = 15;
+            bits_length = 8;
+            break;
 
         case 7:
             address = 5;
-            start_bit =7;
-            bits_length =8;
+            start_bit = 7;
+            bits_length = 8;
+            break;
 
         case 8:
             address = 1;
-            start_bit =31;
-            bits_length =8;
+            start_bit = 31;
+            bits_length = 8;
+            break;
 
         case 9:
             address = 1;
-            start_bit =23;
-            bits_length =8;
+            start_bit = 23;
+            bits_length = 8;
+            break;
 
         case 10:
             address = 1;
-            start_bit =15;
-            bits_length =8;
+            start_bit = 15;
+            bits_length = 8;
+            break;
 
         case 11:
             address = 3;
-            start_bit =31;
-            bits_length =8;
+            start_bit = 31;
+            bits_length = 8;
+            break;
 
         case 12:
             address = 3;
-            start_bit =23;
-            bits_length =8;
+            start_bit = 23;
+            bits_length = 8;
+            break;
 
         case 13:
             address = 3;
-            start_bit =15;
-            bits_length =8;
+            start_bit = 15;
+            bits_length = 8;
+            break;
 
         case 14:
             address = 2;
-            start_bit =31;
-            bits_length =8;
+            start_bit = 31;
+            bits_length = 8;
+            break;
+
+        case 15:
+            cout << "Coming soon" << endl;
+            break;
+
+        case 99:
+            cout << "\nHow many outputs does my lord desire?" << endl << ">> ";
+            echoPacket ( getFrequency() );
         }
 
-        if ( input != 0 )
+        if ( ( input != 0 ) && ( input != 99 ) )
         {
+            cout << "Enter Desired Frequency:" << endl << ">> ";
+            int raw_rate = getFrequency();
+            cout << "this is raw input " << raw_rate << endl;
+            // Setup configuration packet
+            config_packet.packet_type = ( bitset<8> ( "10000000" ).to_ulong() );
+            config_packet.address = address;
+            config_packet.getLength();
             start_bit = 31 - start_bit;
-            error = overwriteRegister ( Packet * config_packet , int start_bit,
-            int bits_length )
+            config_packet.data[start_bit / 4] = raw_rate;
+            cout << "data length is " << config_packet.length << endl;
+            cout << "Got to line: " << __LINE__ << ", File: " << __FILE__ << endl;
+            cout << "560 start: " << start_bit << endl;
+            // overwrite new values in register
+            error = overwriteRegister ( &config_packet ,  start_bit,
+                                        bits_length );
         }
     }
 
@@ -567,6 +662,7 @@ int UM7::packetRequest ( Packet *config_packet )
         tcflush ( serial_handler, TCIOFLUSH );
         write ( serial_handler, cmd, 7 );
         error = getRegister ( config_packet );
+        cout << "GOT IT" << endl;
     }
 
     return 0;
@@ -585,6 +681,7 @@ int UM7::getRegister ( Packet *config_packet )
     char *buffer = new char [100];
     iter = 10;
 
+    // Try this many times
     for ( int i = 0; i < iter; i++ )
     {
         // Find 's' character
@@ -664,7 +761,7 @@ int UM7::registerWrite ( Packet *config_packet )
     /* *** WRITE *** */
     // Start of packet
     uint16_t computer_checksum = config_packet->generateChecksum();
-    int data_length = ( config_packet->length );
+    int data_length = ( config_packet->length ) * 4;
     char *cmd = new char [data_length + 7];
     // Set packet type
     char packet_type = ( bitset<8> ( "10000000" ).to_ulong() );
@@ -673,14 +770,13 @@ int UM7::registerWrite ( Packet *config_packet )
     cmd[0] = 's';
     cmd[1] = 'n';
     cmd[2] = 'p';
-    computer_checksum = 's' + 'n' + 'p';
     cmd[3] = config_packet->packet_type;
-    computer_checksum += uint8_t ( cmd[3] );
     cmd[4] = config_packet->address;
 
     for ( int i = 0; i < data_length; i++ )
     {
         cmd[5 + i] = config_packet->data[i];
+        cout << "data is " << int ( cmd[5 + i] ) << endl;
     }
 
     cmd[5 + data_length] = uint8_t ( computer_checksum >> 8 );
@@ -698,28 +794,63 @@ int UM7::registerWrite ( Packet *config_packet )
 int UM7::overwriteRegister ( Packet *config_packet , int start_bit,
                              int bits_length )
 {
+    bitset<8> byte;
+    bitset<32> bits_form_user;
+    bitset<32> bits_from_register;
     char *data2 = new char [bits_length];
     int error = 0;
 
-    for ( int i = 0; i < bits_length; i++ )
+    // Save data in a temp variable
+    for ( int i = 0; i < 4; i++ )
     {
-        data2[i] = config_packet->data[i + start_bit];
+        byte = bitset<8> ( config_packet->data[i] );
+
+        for ( int j = 0; j < 8; j++ )
+        {
+            bits_form_user[i * 8 + j] = byte[j];
+        }
     }
 
-    // setup packet
-    Packet requester;
-    requester.packet_type = 0;
-    requester.address = config_packet->address;
-    // get register
+    cout << "user input: " << bits_form_user << endl;
+    // Get register data
     error = packetRequest ( config_packet );
 
-    // make changes
-    for ( int i = 0; i < bits_length; i++ )
+    for ( int i = 0; i < 4; i++ )
     {
-        config_packet->data[i + start_bit] = data2[i];
+        byte = bitset<8> ( config_packet->data[i] );
+
+        for ( int j = 0; j < 8; j++ )
+        {
+            bits_from_register[i * 8 + j] = byte[j];
+        }
+    }
+
+    cout << "start" << start_bit << endl;
+
+    // Substitute configuration request parts of register data with user data
+    for ( int i = start_bit; i < start_bit + bits_length; i++ )
+    {
+        cout << "i is: " << i << "," << bits_from_register[i] << bits_form_user[i] <<
+             endl;
+        bits_from_register[i] = bits_form_user[i];
+    }
+
+    cout << "substituted: " << bits_from_register << endl;
+
+    // Convert configuration package bits to data bytes
+    for ( int i = 0; i < 4; i++ )
+    {
+        for ( int j = 0; j < 8; j++ )
+        {
+            byte[j] = bits_from_register[i * 8 + j];
+        }
+
+        config_packet->data[i] = byte.to_ulong();
+        cout << "sent byte is " << byte << endl;
     }
 
     // write register
     registerWrite ( config_packet );
     // confirm write
 }
+
