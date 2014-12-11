@@ -15,6 +15,7 @@
 #include <vector>
 #include <limits.h>
 #include <math.h>
+#include <algorithm>
 
 #define ANSI_COLOR_RED     "\x1b[31;1m"
 #define ANSI_COLOR_GREEN   "\x1b[32;1m"
@@ -36,11 +37,9 @@ public:
     char *data = new char [0];
     uint16_t checksum;
 
-    float GetFloat32 ( string Binary );
-    void calculateLength ( Packet *received_packet );
-    void getLength();
     Packet();
     ~Packet();
+    void getLength();
     void checkHealth();
     uint16_t generateChecksum();
 };
@@ -48,26 +47,33 @@ public:
 class UM7
 {
 private:
-    vector<string> register_name;
     int serial_handler;
     int error;
-public:
-    void findBeginning();
-    void setError ( int err );
-    int getFrequency();     // TODO
-    int getPacketType();    //TODO
-    int getAddress();       // TODO
-    void echoPacket ( int iterations );
+
     int overwriteRegister ( Packet *config_packet , int start_bit,
                             int bits_length );
     int packetRequest ( Packet *config_packet );
     int registerWrite ( Packet *config_packet );
     int confirmWrite ( int requested_address );     //TODO
     int getRegister ( Packet *config_packet );
+    void findBeginning();
+    void setError ( int err );
+
+public:
+    int registers_32[70] = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 88, 91, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 111, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130};
+    int registers_16[10] = {86, 87, 89, 90, 92, 93, 109, 110, 112, 113};
+    int registers_quat[2] = {109, 110};
+    int registers_eulr[2] = {112, 113};
+    int registers_eulr_rates[2] = {114, 115};
+    float position_x, position_y, position_z;
+    float velocity_x, velocity_y, velocity_z;
 
     UM7();
     ~UM7();
+    float translate ( int address, bitset<8> *array_of_bytes );
     void config();
+    int getFrequency();
+    void echoPacket ( int iterations );
 };
 
 ////////////////////////////////
@@ -101,19 +107,37 @@ int getIntegerInput ( int *input )
     return 0;
 }
 
-void UM7::setError ( int err )
+float GetFloat16 ( bitset<8> *array_of_bytes )
 {
-    error = err;
+    string Binary = array_of_bytes[0].to_string() + array_of_bytes[1].to_string();
+    bitset<16> set ( Binary );
+    int HexNumber = set.to_ulong();
+    bool negative  = !! ( HexNumber & 0x8000 );
+    int  exponent  = ( HexNumber & 0x7c00 ) >> 10;
+    int sign = negative ? -1 : 1;
+    // Subtract 127 from the exponent
+    exponent -= 15;
+    // Convert the mantissa into decimal using the
+    // last 23 bits
+    int power = -1;
+    float total = 0.0;
 
-    if ( error != 0 )
+    for ( int i = 0; i < 10; i++ )
     {
-        exit ( error );
+        int c = Binary[ i + 6 ] - '0';
+        total += ( float ) c * ( float ) pow ( 2.0, power );
+        power--;
     }
-}
 
+    total += 1.0;
+    float value = sign * ( float ) pow ( 2.0, exponent ) * total;
+    return value;
+}
 // Convert the 32-bit binary into the decimal
-float Packet::GetFloat32 ( string Binary )
+float GetFloat32 ( bitset<8> *array_of_bytes )
 {
+    string Binary = array_of_bytes[0].to_string() + array_of_bytes[1].to_string() +
+                    array_of_bytes[2].to_string() + array_of_bytes[3].to_string();
     bitset<32> set ( Binary );
     int HexNumber = set.to_ulong();
     bool negative  = !! ( HexNumber & 0x80000000 );
@@ -135,8 +159,52 @@ float Packet::GetFloat32 ( string Binary )
 
     total += 1.0;
     float value = sign * ( float ) pow ( 2.0, exponent ) * total;
+    cout << value;
     return value;
 }
+
+float UM7::translate ( int address, bitset<8> *array_of_bytes )
+{
+    float value;
+
+    // int a = SOME_VALUE; // this is the value you are searching for
+    if ( any_of ( begin ( registers_32 ), end ( registers_32 ), [&] ( int i )
+{
+    return i == address;
+} ) )
+    {
+        value = GetFloat32 ( array_of_bytes );
+    }
+
+    if ( any_of ( begin ( registers_16 ), end ( registers_16 ), [&] ( int i )
+{
+    return i == address;
+} ) )
+    {
+        bitset<8> temp[2];
+        temp[0] = array_of_bytes[0];
+        temp[1] = array_of_bytes[1];
+        value = GetFloat16 ( temp );
+        printf ( " %6.2f, ", value );
+        temp[0] = array_of_bytes[2];
+        temp[1] = array_of_bytes[3];
+        value = GetFloat16 ( temp );
+        printf ( "%6.2f", value );
+    }
+}
+
+void UM7::setError ( int err )
+{
+    error = err;
+
+    if ( error != 0 )
+    {
+        exit ( error );
+    }
+}
+
+
+
 
 Packet::Packet() {};
 
@@ -331,7 +399,8 @@ void UM7::echoPacket ( int iter )
     Packet received_pkt;
     uint16_t received_checksum;
     unsigned char decimal;
-    string binary, binary32;
+    string binary;
+    bitset<8> array_of_bytes[4];
     char buffer[100];
     /* *** READ *** */
     int n, reg_address;
@@ -354,7 +423,7 @@ void UM7::echoPacket ( int iter )
         received_pkt.address =  int ( uint8_t ( buffer[0] ) );
         printf ( "\nAddress is %i = %#x", received_pkt.address, received_pkt.address );
         cout << " = " << bitset<8> ( received_pkt.address ).to_string();
-        cout << "\nData length = " << received_pkt.length << " registers";
+        cout << "\nData length = " << received_pkt.length << " register(s)";
         binary = bitset<8> ( received_pkt.address ).to_string(); //to binary
 
         for ( int i = 0; i < received_pkt.length * 4; i++ )
@@ -367,16 +436,14 @@ void UM7::echoPacket ( int iter )
 
             n = read ( serial_handler, buffer, 1 );
             received_pkt.data[i] =  int ( uint8_t ( buffer[0] ) );
+            array_of_bytes[i % 4] = bitset<8> ( buffer[0] );
             binary = bitset<8> ( buffer[0] ).to_string(); //to binary
             printf ( "%3u: ", ( uint8_t ( received_pkt.data[i] ) ) );
             cout << binary << " | ";
-            binary32 += binary;
 
             if ( i % 4 == 3 )
             {
-                float boob = received_pkt.GetFloat32 ( binary32 );
-                cout << "real value is " << boob << endl;
-                binary32 = "";
+                translate ( received_pkt.address, array_of_bytes );
             }
         }
 

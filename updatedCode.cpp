@@ -9,7 +9,7 @@ int main()
     // imu.packetRequest(&test);
     // test.address=23;
     // imu.packetRequest(&test);
-    imu.echoPacket ( 5 );
+    imu.echoPacket ( 10 );
     imu.config();
     printf ( ANSI_COLOR_CYAN
              "######################## UM7 Communication, BarzinM #######################\n"
