@@ -61,15 +61,17 @@ private:
 
 public:
     int registers_32[70] = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 88, 91, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 111, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130};
-    int registers_16[10] = {86, 87, 89, 90, 92, 93, 109, 110, 112, 113};
+    int registers_16[20] = {86, 87, 89, 90, 92, 93, 109, 110, 112, 113, 114, 115};
     int registers_quat[2] = {109, 110};
     int registers_eulr[2] = {112, 113};
     int registers_eulr_rates[2] = {114, 115};
-    float position_x, position_y, position_z;
-    float velocity_x, velocity_y, velocity_z;
+    float position_x = 0, position_y = 0, position_z = 0;
+    float velocity_x = 0, velocity_y = 0, velocity_z = 0;
 
     UM7();
     ~UM7();
+    int setPosition ( float , float , float );
+    int setVelocity ( float , float , float );
     float translate ( int address, bitset<8> *array_of_bytes );
     void config();
     int getFrequency();
@@ -83,6 +85,22 @@ public:
 ////////////////////////// // //
 ///////////////////////////// //
 ////////////////////////////////
+
+int UM7::setPosition ( float X, float Y, float Z )
+{
+    position_x = X;
+    position_y = Y;
+    position_z = Z;
+    return 0;
+}
+
+int UM7::setVelocity ( float Xdot, float Ydot, float Zdot )
+{
+    velocity_x = Xdot;
+    velocity_y = Ydot;
+    velocity_z = Zdot;
+    return 0;
+}
 
 int getIntegerInput ( int *input )
 {
@@ -107,30 +125,10 @@ int getIntegerInput ( int *input )
     return 0;
 }
 
-float GetFloat16 ( bitset<8> *array_of_bytes )
+int GetFloat16 ( bitset<8> *array_of_bytes )
 {
-    string Binary = array_of_bytes[0].to_string() + array_of_bytes[1].to_string();
-    bitset<16> set ( Binary );
-    int HexNumber = set.to_ulong();
-    bool negative  = !! ( HexNumber & 0x8000 );
-    int  exponent  = ( HexNumber & 0x7c00 ) >> 10;
-    int sign = negative ? -1 : 1;
-    // Subtract 127 from the exponent
-    exponent -= 15;
-    // Convert the mantissa into decimal using the
-    // last 23 bits
-    int power = -1;
-    float total = 0.0;
-
-    for ( int i = 0; i < 10; i++ )
-    {
-        int c = Binary[ i + 6 ] - '0';
-        total += ( float ) c * ( float ) pow ( 2.0, power );
-        power--;
-    }
-
-    total += 1.0;
-    float value = sign * ( float ) pow ( 2.0, exponent ) * total;
+    int value;
+    value=(short)((array_of_bytes[0].to_ulong()<<8)|array_of_bytes[1].to_ulong());
     return value;
 }
 // Convert the 32-bit binary into the decimal
@@ -167,13 +165,13 @@ float UM7::translate ( int address, bitset<8> *array_of_bytes )
 {
     float value;
 
-    // int a = SOME_VALUE; // this is the value you are searching for
     if ( any_of ( begin ( registers_32 ), end ( registers_32 ), [&] ( int i )
 {
     return i == address;
 } ) )
     {
         value = GetFloat32 ( array_of_bytes );
+        return value;
     }
 
     if ( any_of ( begin ( registers_16 ), end ( registers_16 ), [&] ( int i )
@@ -182,10 +180,81 @@ float UM7::translate ( int address, bitset<8> *array_of_bytes )
 } ) )
     {
         bitset<8> temp[2];
+        int divide_by = 1;
         temp[0] = array_of_bytes[0];
         temp[1] = array_of_bytes[1];
         value = GetFloat16 ( temp );
-        printf ( " %6.2f, ", value );
+
+        if ( address == registers_quat[0] )
+        {
+            cout << "Quat: ";
+            divide_by = 29789.09091;
+            value = value / divide_by;
+            printf ( "%6.2f, ", value );
+            temp[0] = array_of_bytes[2];
+            temp[1] = array_of_bytes[3];
+            value = GetFloat16 ( temp );
+            value = value / divide_by;
+            printf ( "%6.2f", value );
+            return 0;
+        }
+
+        if ( address == registers_quat[1] )
+        {
+            cout << "Quat: ";
+            divide_by = 29789.09091;
+            value = value / divide_by;
+            printf ( "%6.2f", value );
+            return 0;
+        }
+
+        if ( address == registers_eulr[0] )
+        {
+            cout << "Euler: ";
+            divide_by = 91.02222;
+            value = value / divide_by;
+            printf ( "%3.2f, ", value );
+            temp[0] = array_of_bytes[2];
+            temp[1] = array_of_bytes[3];
+            value = GetFloat16 ( temp );
+            value = value / divide_by;
+            printf ( "%3.2f", value );
+            return 0;
+        }
+
+        if ( address ==  registers_eulr[1] )
+        {
+            cout << "Euler: ";
+            divide_by = 91.02222;
+            value = value / divide_by;
+            printf ( "%3.2f", value );
+            return 0;
+        }
+
+        if ( address == registers_eulr_rates[0] )
+        {
+            cout << "Euler Rates: ";
+            divide_by = 16;
+            value = value / divide_by;
+            printf ( "%6.2f, ", value );
+            temp[0] = array_of_bytes[2];
+            temp[1] = array_of_bytes[3];
+            value = GetFloat16 ( temp );
+            value = value / divide_by;
+            printf ( "%6.2f", value );
+            return 0;
+        }
+
+        if ( address ==  registers_eulr_rates[1] )
+        {
+            cout << "Euler Rates: ";
+            divide_by = 16;
+            value = value / divide_by;
+            printf ( "%6.2f", value );
+            return 0;
+        }
+
+        printf ( "%6.2f, ", value );
         temp[0] = array_of_bytes[2];
         temp[1] = array_of_bytes[3];
         value = GetFloat16 ( temp );
@@ -285,16 +354,15 @@ void Packet::getLength ()
     }
 
     data = new char [length * 4];
-    cout << endl <<
-         "===========================================================================" <<
-         endl;
+    cout << "==========================================================================="
+         << endl;
 
     if ( binary[7] == '1' )
     {
         cout << "******COMMUNICATION FAILED******";
     }
 
-    cout << packet_type << ": " << binary << ": ";
+    cout << "Packet type: " << packet_type << "= " << binary << ": ";
 
     if ( binary[0] == '1' )
     {
@@ -421,9 +489,9 @@ void UM7::echoPacket ( int iter )
         //char *binary_char = &binary[0];
         n = read ( serial_handler, buffer, 1 );
         received_pkt.address =  int ( uint8_t ( buffer[0] ) );
-        printf ( "\nAddress is %i = %#x", received_pkt.address, received_pkt.address );
-        cout << " = " << bitset<8> ( received_pkt.address ).to_string();
-        cout << "\nData length = " << received_pkt.length << " register(s)";
+        printf ( "\nAddress is: %i = %#x", received_pkt.address,
+                 received_pkt.address );
+        cout << "\nData length: " << received_pkt.length << " register(s)";
         binary = bitset<8> ( received_pkt.address ).to_string(); //to binary
 
         for ( int i = 0; i < received_pkt.length * 4; i++ )
@@ -443,24 +511,13 @@ void UM7::echoPacket ( int iter )
 
             if ( i % 4 == 3 )
             {
-                translate ( received_pkt.address, array_of_bytes );
+                translate ( reg_address, array_of_bytes );
             }
         }
 
         n = read ( serial_handler, buffer, 2 );
         received_pkt.checksum = uint16_t ( buffer[0] ) << 8 | uint8_t ( buffer[1] );
         received_pkt.checkHealth();
-        // if ( n < 0 )
-        // {
-        //     cout << "Reading Error" << strerror ( errno ) << endl;
-        //     break;
-        // }
-        // if ( n == 0 )
-        // {
-        //     cout << "Nothing to read";
-        //     break;
-        // }
-        //
     }
 
     cout << endl;

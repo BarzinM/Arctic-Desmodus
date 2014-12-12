@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"tran",
+				"translate"
+			],
+			[
+				"to",
+				"to_string"
+			],
+			[
+				"to_",
+				"to_string"
+			],
+			[
+				"register",
+				"registers_32"
+			],
+			[
+				"regist",
+				"registers_32"
+			],
+			[
+				"tra",
+				"translate"
+			],
+			[
+				"binary",
+				"binary32"
+			],
+			[
+				"start",
+				"start_bit"
+			],
+			[
+				"bits",
+				"bits_from_register"
+			],
+			[
 				"battery",
 				"battery_step"
 			],
@@ -168,10 +204,6 @@
 				"explorer_operation_time"
 			],
 			[
-				"bits",
-				"bits_form_user"
-			],
-			[
 				"byte",
 				"byte"
 			],
@@ -226,10 +258,6 @@
 			[
 				"serial",
 				"serial_handler"
-			],
-			[
-				"binary",
-				"binary_data"
 			],
 			[
 				"requ",
@@ -328,20 +356,59 @@
 	"buffers":
 	[
 		{
-			"file": "/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
+			"file": "UM7.h",
 			"settings":
 			{
-				"buffer_size": 10435,
+				"buffer_size": 25525,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Special topics:\n\n1- NAGA NITHIN TEJA KONDIPATI: Research 3D path tracking control systems (Fuzzy, PID, MPC) and develop the models in Python and test on a multi-copter\n\n2- Sumeet Chhawri: Design a (short-range, i.e. touching) wireless system to transfer energy and data simultaneously and use wireless signal strength for distance estimation: One solution is to design modules combined of inductive chargers and low-power Bluetooth components.\n\n3- Mugesh Shanmugam Pillai Gnanasekar: Assembly and test of a multi-copter. Put BeagleBone on it and develop a simple actuator control system.\n\nAdmitted student: \n\n1- Dipayan Das: Please ask him to tell us about the following: His projects and experiences with:C/C++, Python, OpenCV, SLAM,Probabilistic Programming, Kalman Filter. Does he have videos or pictures of his Autonomous Grabber Robot project.",
+			"file": "/home/naslab/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 848,
-				"line_ending": "Unix",
-				"name": "Special topics:"
+				"buffer_size": 196,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/index.md",
+			"settings":
+			{
+				"buffer_size": 392,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/post.html",
+			"settings":
+			{
+				"buffer_size": 551,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/articles/index.md",
+			"settings":
+			{
+				"buffer_size": 400,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/2014-04-06-ImageProcessing.md",
+			"settings":
+			{
+				"buffer_size": 8322,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_site/posts/index.html",
+			"settings":
+			{
+				"buffer_size": 2606,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -449,25 +516,46 @@
 	],
 	"file_history":
 	[
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_posts/2014-04-06-ImageProcessing.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/theme-setup/index.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/README.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_config.yml",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_posts/2014-04-06-ImageProcessing.markdown",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_posts/articles/2011-03-10-sample-post.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_posts/blog/2014-08-08-hello-world.md",
+		"/home/naslab/BRZN/SensorFusion/updatedCode.cpp",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/blog/index.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_layouts/post.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_site/articles/index.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_layouts/page.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/grid.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/default.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_posts/articles/2013-06-25-video-post.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_site/posts/index.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/articles/index.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/index",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/untitled",
+		"/home/naslab/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/naslab/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/naslab/BRZN/SensorFusion/UM7_Functions.h",
+		"/home/naslab/BRZN/BarzinM.github.io/index.html",
+		"/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
+		"/home/naslab/BRZN/ImageProcessing/makefile",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/services.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/posts.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/agency.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_config.yml",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/grid.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/style.css",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/default.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/header.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/head.html",
 		"/home/naslab/BRZN/SensorFusion/UM7.h",
-		"/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/search.json",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_includes/head.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/assets/css/main.scss",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/index.html",
 		"/home/naslab/BRZN/flying-spotted-salamander/classes.py",
 		"/home/naslab/BRZN/flying-spotted-salamander/fronEnd.py",
-		"/home/naslab/BRZN/SensorFusion/updatedCode.cpp",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/css/font-awesome.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/fonts/FontAwesome.otf",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/css/font-awesome.min.css",
@@ -479,10 +567,8 @@
 		"/home/naslab/BRZN/SensorFusion/makefile",
 		"/home/naslab/BRZN/SensorFusion/readSerial.cpp",
 		"/home/naslab/BRZN/SensorFusion/README.md",
-		"/home/naslab/BRZN/SensorFusion/UM7_Functions.h",
 		"/home/naslab/.config/sublime-text-3/Packages/DocBlockr/Base File.sublime-settings",
 		"/home/naslab/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
-		"/home/naslab/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
 		"/home/naslab/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
 		"/home/naslab/.config/sublime-text-3/Packages/User/MarkdownPreview.sublime-settings",
 		"/home/naslab/BRZN/SensorFusion/playWithCurses.cpp",
@@ -523,6 +609,37 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"printf",
+			"translate",
+			"GetFloat32",
+			"registers_32",
+			"getLength",
+			"GetFloat32",
+			"calculateLength",
+			"getFrequency",
+			"getAddress",
+			"getPacketType",
+			"register_name",
+			"GetFloat32",
+			"cout",
+			"case",
+			"break",
+			"cout",
+			"case",
+			"packetRequest",
+			"data_length",
+			"packet_type",
+			"getLength",
+			"data",
+			"config_packet.data",
+			"style",
+			"ctrl",
+			"key",
+			"serialSetup",
+			"target",
+			".",
+			"glider #",
+			"glider",
 			"100",
 			"posts",
 			"370px",
@@ -619,38 +736,7 @@
 			"new",
 			"generateChecksum",
 			"datalength",
-			"register",
-			"new",
-			"for",
-			"new",
-			"data",
-			"Data",
-			"data",
-			"new",
-			"single_byte",
-			"getRegister",
-			"packetRequest",
-			"findBeginning",
-			"echoPacket",
-			"packetRequest",
-			"insertByte",
-			"getRegister",
-			"confirm",
-			"getRegister",
-			"confirmWrite",
-			"registerWrite",
-			"packetRequest",
-			"overwriteRegister",
-			"echoPacket",
-			"getAddress",
-			"confirmWrite",
-			"registerWrite",
-			"packetRequest",
-			"getAddress",
-			"getPacketType",
-			"getFrequency",
-			"setError",
-			"findBeginning"
+			"register"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -673,166 +759,28 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
+					"file": "UM7.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10435,
+						"buffer_size": 25525,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9172,
-								9172
-							],
-							[
-								9191,
-								9191
+								11768,
+								11768
 							]
 						],
 						"settings":
 						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3350.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 848,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								848,
-								848
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Special topics:",
 							"codeintel": true,
 							"codeintel_config":
 							{
@@ -938,13 +886,609 @@
 							"codeintel_tooltips": "popup",
 							"spell_check": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11898.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/naslab/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/index.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 392,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/post.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 551,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								462,
+								462
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/articles/index.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								96
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/2014-04-06-ImageProcessing.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8322,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								440,
+								440
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_site/posts/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -967,11 +1511,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1019,7 +1570,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
