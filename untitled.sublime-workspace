@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"tra",
+				"trajectory_y"
+			],
+			[
+				"curr",
+				"current_x"
+			],
+			[
+				"list",
+				"list_of_charging_robots"
+			],
+			[
+				"set",
+				"setID"
+			],
+			[
+				"lis",
+				"list_of_operatoring_robots"
+			],
+			[
 				"barzinm",
 				"BarzinM"
 			],
@@ -30,10 +50,6 @@
 			[
 				"regist",
 				"registers_32"
-			],
-			[
-				"tra",
-				"translate"
 			],
 			[
 				"binary",
@@ -360,100 +376,60 @@
 	"buffers":
 	[
 		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/header.html",
+			"file": "/home/naslab/BRZN/Rugged Laptops.txt",
 			"settings":
 			{
-				"buffer_size": 2086,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/about.html",
-			"settings":
-			{
-				"buffer_size": 1841,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/projects.html",
-			"settings":
-			{
-				"buffer_size": 3169,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/post_style.css",
-			"settings":
-			{
-				"buffer_size": 1144,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/style.css",
-			"settings":
-			{
-				"buffer_size": 92,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_config.yml",
-			"settings":
-			{
-				"buffer_size": 1376,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/agency.css",
-			"settings":
-			{
-				"buffer_size": 12682,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/classie.js",
-			"settings":
-			{
-				"buffer_size": 1835,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/cbpAnimatedHeader.js",
-			"settings":
-			{
-				"buffer_size": 1053,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "0916 604 6110",
-			"settings":
-			{
-				"buffer_size": 13,
+				"buffer_size": 699,
 				"line_ending": "Unix",
-				"name": "0916 604 6110"
+				"name": "Getac B300:"
+			}
+		},
+		{
+			"file": "/home/naslab/BRZN/flying-spotted-salamander/Second_simulation/PathGenerationTester.m",
+			"settings":
+			{
+				"buffer_size": 711,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/naslab/BRZN/flying-spotted-salamander/Second_simulation/OperatingRobot.m",
+			"settings":
+			{
+				"buffer_size": 1707,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 369.0,
+		"height": 180.0,
 		"selected_items":
 		[
 			[
-				"spac",
-				"Indentation: Convert to Spaces"
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"gitgutte",
+				"GitGutter: Compare Against HEAD"
+			],
+			[
+				"set plutin",
+				"HTMLPrettify: Set Plugin Options"
+			],
+			[
+				"html",
+				"HTMLPrettify"
 			],
 			[
 				"install ",
 				"Package Control: Install Package"
+			],
+			[
+				"spac",
+				"Indentation: Convert to Spaces"
 			],
 			[
 				"packa",
@@ -488,10 +464,6 @@
 				"SublimeAStyleFormatter: Format Current File"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"comm",
 				"Toggle Comment"
 			],
@@ -520,13 +492,14 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 602.0
+		"width": 467.0
 	},
 	"console":
 	{
 		"height": 139.0,
 		"history":
 		[
+			"l",
 			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
@@ -539,22 +512,62 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/home/naslab/Documents/ACC"
-	],
 	"file_history":
 	[
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/agency.js",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/js.html",
+		"/home/naslab/BRZN/flying-spotted-salamander/Second_simulation/PathGenerationTester.m",
+		"/home/naslab/BRZN/flying-spotted-salamander/Python Simulation/lawn.py",
+		"/home/naslab/BRZN/flying-spotted-salamander/Python Simulation/classes.py",
+		"/home/naslab/BRZN/flying-spotted-salamander/Matlab Simulation/OperatingRobot.m",
+		"/home/naslab/BRZN/flying-spotted-salamander/Matlab Simulation/ChargingRobot.m",
+		"/home/naslab/BRZN/flying-spotted-salamander/Matlab Simulation/plotTeste.py",
+		"/home/naslab/BRZN/flying-spotted-salamander/Matlab Simulation/Matlab_classes.m",
+		"/home/naslab/BRZN/flying-spotted-salamander/Matlab Simulation/Simulation.m",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/storage/posts/2014-04-06-Hello_world.md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/storage/posts/2014-04-06-Hello_world (copy).md",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/storage/posts/2014-04-07-asfdsafd (copy).markdown",
+		"/home/naslab/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/naslab/.config/sublime-text-3/Cache/Matlab/Symbols.tmPreferences.cache",
+		"/home/naslab/.config/sublime-text-3/Cache/Matlab/Miscellaneous.tmPreferences.cache",
+		"/home/naslab/.config/sublime-text-3/Cache/Matlab/Matlab.tmLanguage.cache",
+		"/home/naslab/.config/sublime-text-3/Cache/Matlab/Indent.tmPreferences.cache",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/agency.css",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/grid.html",
+		"/home/naslab/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/naslab/BRZN/flying-spotted-salamander/Matlab_classes.m",
+		"/home/naslab/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/naslab/BRZN/flying-spotted-salamander/Recharge_Planning_Simulation_Frontend.m",
+		"/home/naslab/.config/sublime-text-3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
+		"/home/naslab/.config/sublime-text-3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/home/naslab/BRZN/UGV/Lidar.m",
+		"/home/naslab/.config/sublime-text-3/Packages/DocBlockr/Base File.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/home/naslab/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/cbpAnimatedHeader.js",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/classie.js",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/script.js",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/agency.js",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/cbpGridGallery.js",
+		"/home/naslab/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Default (Linux).sublime-keymap",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/contact.html",
+		"/home/naslab/BRZN/UGV/testMatlabSublime.m",
+		"/home/naslab/.config/sublime-text-3/Packages/SublimeLinter/Default (Linux).sublime-keymap",
+		"/home/naslab/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/contact2.html",
+		"/home/naslab/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/header.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/about.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/projects.html",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/post_style.css",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/style.css",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_config.yml",
+		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/js.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/bootstrap.min.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/cbpAnimatedHeader.min.js",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/post_footer.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/footer.html",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/cbpGridGallery.js",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/classie.js",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/cbpAnimatedHeader.js",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/post.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/component.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/404.md",
@@ -562,10 +575,7 @@
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_posts/2014-04-06-Faster_Ubuntu.md",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/index.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/head.html",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/header.html",
-		"/home/naslab/BRZN/flying-spotted-salamander/lawn.py",
 		"/home/naslab/BRZN/Reacharging project",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_config.yml",
 		"/home/naslab/BRZN/Wireless charging project",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/default.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/post_head.html",
@@ -593,7 +603,6 @@
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_projects/2014-04-06-WebDesign.markdown~",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_projects/2014-04-06-UGV.markdown~",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_projects/2014-04-06-AirplaneDesign.markdown~",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/grid.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_projects/UM7Driver.markdown",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/index.md",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/posts.html",
@@ -611,24 +620,19 @@
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/storage/2014-04-06-NavigationControl.markdown",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/storage/2014-04-06-ImageProcessing.markdown",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/storage/2014-04-06-MachineLearningRegression.markdown",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/agency.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/main.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/syntax.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/demo.css",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/post_style.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/normalize.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/print.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/main2.css",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/contact.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/services.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_projects/2014-11-1-UM7Driver.markdown",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/post_header.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/about2.html",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/about.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_projects/2014-04-06-AirplaneDesign.markdown",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/feed.xml",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/2014-04-06-ImageProcessing.md",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/style.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/style.css",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/style.css",
 		"/home/naslab/BRZN/SensorFusion/UM7.h",
@@ -637,46 +641,11 @@
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/project.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_site/posts/index.html",
 		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/articles/index.md",
-		"/home/naslab/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/theme-setup/index.md",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/README.md",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_config.yml",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_posts/2014-04-06-ImageProcessing.markdown",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_posts/articles/2011-03-10-sample-post.md",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_posts/blog/2014-08-08-hello-world.md",
-		"/home/naslab/BRZN/SensorFusion/updatedCode.cpp",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/blog/index.md",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_layouts/post.html",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_site/articles/index.html",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_layouts/page.html",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_posts/articles/2013-06-25-video-post.md",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/index",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/posts/untitled",
-		"/home/naslab/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/naslab/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
-		"/home/naslab/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
-		"/home/naslab/BRZN/SensorFusion/UM7_Functions.h",
-		"/home/naslab/BRZN/BarzinM.github.io/index.html",
-		"/home/naslab/BRZN/ImageProcessing/makefile",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/search.json",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/_includes/head.html",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/assets/css/main.scss",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/so-simple-theme-master/index.html",
-		"/home/naslab/BRZN/flying-spotted-salamander/classes.py",
-		"/home/naslab/BRZN/flying-spotted-salamander/fronEnd.py",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/css/font-awesome.css",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/fonts/FontAwesome.otf",
-		"/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/css/font-awesome/css/font-awesome.min.css",
-		"/home/naslab/BRZN/greater-honey-badger-guide/README.md",
-		"/home/naslab/BRZN/flying-spotted-salamander/twoDimSim.py",
-		"/home/naslab/BRZN/flying-spotted-salamander/twoDimSimTwoIVER.py",
-		"/home/naslab/BRZN/flying-spotted-salamander/base.py",
-		"/home/naslab/.config/sublime-text-3/Packages/SublimeAStyleFormatter/Default (Linux).sublime-keymap",
-		"/home/naslab/BRZN/SensorFusion/makefile"
+		"/home/naslab/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -691,6 +660,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"oscillation_range",
+			"N",
+			"number_of_divergences",
+			"oscillation",
+			"two_pi",
+			"y",
+			"x",
+			"rr",
+			"something",
+			"discreted_steps",
+			"tiny_discreted_steps",
+			"discreted_steps",
+			"tt",
+			"L",
+			"randbit",
+			"nonrandbit",
+			"L_desire",
+			"y",
+			"value",
+			"Environment",
+			"list_of_operatoring_robots",
+			"list_of_charging_robots",
+			"list_of_operatoring_robots",
+			"time_step",
+			"ID",
+			"list_of_operatoring_robots",
+			".grid figure",
+			"site.",
+			"{{site.",
+			" {{site.color",
+			"{{site.",
+			"posts",
+			"site.",
 			".navbar-default .navbar-nav>li>a:focus",
 			"focus",
 			"portfol",
@@ -785,40 +787,7 @@
 			"glider #",
 			"glider",
 			"100",
-			"posts",
-			"370px",
-			"400px",
-			"css",
-			"\n",
-			"ivers",
-			"x",
-			"iver",
-			"self.gliders_position",
-			"gliders_position",
-			"self.ivers_position",
-			"self.gliders",
-			"self.ivers",
-			"number_of_forward_steps",
-			"estimated_",
-			"x",
-			"time_step",
-			"print",
-			"positionEstimation",
-			"self",
-			"ivers",
-			"chargers",
-			"cos(",
-			"char",
-			"set_",
-			"set_text",
-			"set_",
-			" ",
-			"self.gliders[i].",
-			"number",
-			"right",
-			"forward",
-			"path_length",
-			"number_of_rechargers"
+			"posts"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -841,28 +810,29 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/header.html",
+					"file": "/home/naslab/BRZN/Rugged Laptops.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2086,
+						"buffer_size": 699,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1594,
-								1594
+								281,
+								281
 							]
 						],
 						"settings":
 						{
+							"auto_name": "Getac B300:",
 							"codeintel": true,
 							"codeintel_config":
 							{
@@ -966,839 +936,33 @@
 								"Python Django": "Python"
 							},
 							"codeintel_tooltips": "popup",
+							"spell_check": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/about.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1841,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								382,
-								382
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/projects.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								26,
-								26
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/post_style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1144,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								504,
-								504
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_layouts/style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 92,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								92,
-								92
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_config.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1376,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								371,
-								371
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 6,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/_includes/css/agency.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12682,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4718,
-								4718
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3385.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/classie.js",
+					"buffer": 1,
+					"file": "/home/naslab/BRZN/flying-spotted-salamander/Second_simulation/PathGenerationTester.m",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1835,
+						"buffer_size": 711,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								346,
-								346
+								711,
+								711
 							]
 						],
 						"settings":
@@ -1907,32 +1071,36 @@
 							},
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Matlab/Matlab.tmLanguage"
 						},
-						"translation.x": -0.0,
-						"translation.y": 459.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 8,
-					"file": "/home/naslab/BRZN/Blog/JekyllBasedBlog/agency-jekyll-theme-gh-pages/js/cbpAnimatedHeader.js",
+					"buffer": 2,
+					"file": "/home/naslab/BRZN/flying-spotted-salamander/Second_simulation/OperatingRobot.m",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1053,
+						"buffer_size": 1707,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								463,
-								463
+								41,
+								41
 							]
 						],
 						"settings":
@@ -2041,7 +1209,7 @@
 							},
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Matlab/Matlab.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -2049,138 +1217,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13,
-								13
-							]
-						],
-						"settings":
-						{
-							"auto_name": "0916 604 6110",
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -2214,7 +1250,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.4625,
 			1.0
 		],
 		"rows":
@@ -2235,7 +1271,7 @@
 	"project": "untitled.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2269,8 +1305,8 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 246.0,
+	"side_bar_visible": true,
+	"side_bar_width": 151.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
